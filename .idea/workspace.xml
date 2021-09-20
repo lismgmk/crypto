@@ -1,18 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f11c73bf-c5de-43ff-b37b-631266e2703f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/a1-root/API/cryptoAPI.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/a1-root/Redusers/CoinCryptoReduser.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/a1-root/Redusers/MainCryptoReduser.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a1-root/App/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/App/store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a1-root/NaviBar/NaviBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/NaviBar/NaviBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a1-root/Redusers/allCryptoReduser.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a1-root/v1-AllCrypto/AllCrypto.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v1-AllCrypto/AllCrypto.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    <list default="true" id="f11c73bf-c5de-43ff-b37b-631266e2703f" name="Default Changelist" comment="add Redusers, API">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,8 +66,16 @@
       <updated>1632138616161</updated>
       <workItem from="1632138618052" duration="609000" />
       <workItem from="1632139322594" duration="4880000" />
-      <workItem from="1632156609038" duration="13772000" />
+      <workItem from="1632156609038" duration="14109000" />
     </task>
+    <task id="LOCAL-00001" summary="add Redusers, API">
+      <created>1632173180782</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1632173180782</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -93,5 +91,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add Redusers, API" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Redusers, API" />
   </component>
 </project>
