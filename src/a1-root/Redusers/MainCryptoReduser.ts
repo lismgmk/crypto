@@ -12,9 +12,9 @@ const initialState = {
 export const MainCryptoReduser =
     (state: InitialStateType = initialState, action: CryptoActionType): InitialStateType => {
         switch (action.type) {
-            case "ROOT/ALL-CRYPTO":
+            case "MAIN/ALL-CRYPTO":
                 return {...state, allCoin: action.data};
-            case "ROOT/MAIN-COIN":
+            case "MAIN/MAIN-COIN":
                 return {...state, mainCoin: action.data};
             default:
                 return state;
@@ -24,8 +24,8 @@ export const MainCryptoReduser =
 
 // actions
 export const actionsMainCrypto = {
-    getAllCrypto: (data: Array<CoinType>) => ({type: "ROOT/ALL-CRYPTO", data} as const),
-    getMainsCoin: (data: Array<CoinType>) => ({type: "ROOT/MAIN-COIN", data} as const),
+    getAllCrypto: (data: Array<CoinType>) => ({type: "MAIN/ALL-CRYPTO", data} as const),
+    getMainsCoin: (data: Array<CoinType>) => ({type: "MAIN/MAIN-COIN", data} as const),
 };
 
 

@@ -2,12 +2,13 @@ import {applyMiddleware, combineReducers, createStore} from 'redux';
 import thunk from "redux-thunk";
 import {MainCryptoReduser} from "../Redusers/MainCryptoReduser";
 import {CoinCryptoReduser} from "../Redusers/CoinCryptoReduser";
+import {WalletCryptoReduser} from "../Redusers/WalletCryptoReduser";
 
 
 const rootReducer = combineReducers({
     allCrypto: MainCryptoReduser,
     coinCrypto: CoinCryptoReduser,
-    // wallet: WalletReduser
+    wallet: WalletCryptoReduser
 })
 export const store = createStore(rootReducer, applyMiddleware(thunk));
 
