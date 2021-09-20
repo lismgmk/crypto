@@ -1,11 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f11c73bf-c5de-43ff-b37b-631266e2703f" name="Default Changelist" comment="" />
+    <list default="true" id="f11c73bf-c5de-43ff-b37b-631266e2703f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/a1-root/API/cryptoAPI.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/a1-root/Redusers/CoinCryptoReduser.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/a1-root/Redusers/MainCryptoReduser.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a1-root/App/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/App/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a1-root/NaviBar/NaviBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/NaviBar/NaviBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a1-root/Redusers/allCryptoReduser.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a1-root/v1-AllCrypto/AllCrypto.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v1-AllCrypto/AllCrypto.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1yP1sWTf8ri2JSXqQr3mIjywKzZ" />
   <component name="ProjectViewState">
@@ -13,16 +28,20 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/a1-root/NaviBar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/a1-root/Redusers" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="ts.external.directory.path" value="D:\kamasutra\Offer_progects\Cripto\01_Crypto\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="D:\itKamasutra\offer test 1\crypto\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\itKamasutra\offer test 1\crypto\src\a1-root\Redusers" />
+      <recent name="D:\itKamasutra\offer test 1\crypto\src\a1-root\API" />
       <recent name="D:\kamasutra\Offer_progects\Cripto\01_Crypto\src\a1-root\NaviBar" />
       <recent name="D:\kamasutra\Offer_progects\Cripto\01_Crypto\src\a1-root" />
     </key>
@@ -57,10 +76,22 @@
       <updated>1632138616161</updated>
       <workItem from="1632138618052" duration="609000" />
       <workItem from="1632139322594" duration="4880000" />
+      <workItem from="1632156609038" duration="13772000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
