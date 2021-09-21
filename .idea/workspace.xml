@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f11c73bf-c5de-43ff-b37b-631266e2703f" name="Default Changelist" comment="add Redusers">
+    <list default="true" id="f11c73bf-c5de-43ff-b37b-631266e2703f" name="Default Changelist" comment="add same render">
+      <change afterPath="$PROJECT_DIR$/src/a1-root/v3-Walet/Walet.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a1-root/API/cryptoAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/API/cryptoAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a1-root/NaviBar/NaviBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/NaviBar/NaviBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a1-root/Redusers/MainCryptoReduser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/Redusers/MainCryptoReduser.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a1-root/v1-AllCrypto/AllCrypto.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v1-AllCrypto/AllCrypto.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,13 +24,14 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ToDoList" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/a1-root" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="ts.external.directory.path" value="D:\itKamasutra\offer test 1\crypto\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\itKamasutra\offer test 1\crypto\src\a1-root" />
       <recent name="D:\itKamasutra\offer test 1\crypto\src\a1-root\Redusers" />
       <recent name="D:\itKamasutra\offer test 1\crypto\src\a1-root\API" />
       <recent name="D:\kamasutra\Offer_progects\Cripto\01_Crypto\src\a1-root\NaviBar" />
@@ -70,7 +68,7 @@
       <updated>1632138616161</updated>
       <workItem from="1632138618052" duration="609000" />
       <workItem from="1632139322594" duration="4880000" />
-      <workItem from="1632156609038" duration="27336000" />
+      <workItem from="1632156609038" duration="28067000" />
     </task>
     <task id="LOCAL-00001" summary="add Redusers, API">
       <created>1632173180782</created>
@@ -93,7 +91,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632179155278</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add same render">
+      <created>1632188231046</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1632188231046</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,6 +119,7 @@
     <MESSAGE value="add Redusers, API" />
     <MESSAGE value="add Readme" />
     <MESSAGE value="add Redusers" />
-    <option name="LAST_COMMIT_MESSAGE" value="add Redusers" />
+    <MESSAGE value="add same render" />
+    <option name="LAST_COMMIT_MESSAGE" value="add same render" />
   </component>
 </project>
