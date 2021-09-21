@@ -12,13 +12,13 @@ export const cryptoAPI = {
         return instance.get<{data: Array<CoinType>}>(`?limit=${num}`, {});
     },
     fetchCoin(id: string) {
-        return instance.get<CoinType>(`${id}`, {});
+        return instance.get<{data: CoinType}>(`${id}`, {});
     },
     fetchMainCoins(oneCoin: string, secondCoin: string, thirdCoin: string) {
         return instance.get<{data: Array<CoinType>}>(`?ids=${oneCoin},${secondCoin},${thirdCoin}`, {});
     },
-    fetchHistoryCoins(idCoin: string, interval: string) {
-        return instance.get<Array<HistoryCoinType>>(`${idCoin}/history?interval=${interval}`, {});
+    fetchHistoryCoins(idCoin: string, interval: string='d1') {
+        return instance.get<{data: Array<HistoryCoinType>}>(`${idCoin}/history?interval=${interval}`, {});
     },
 
 };
