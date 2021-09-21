@@ -2,20 +2,20 @@ import axios from "axios";
 
 
 export const instance = axios.create({
-    baseURL: "api.coincap.io/v2/assets/",
-    withCredentials: true,
+    baseURL: "https://api.coincap.io/v2/assets/",
+    // withCredentials: true,
 });
 
 // api
 export const cryptoAPI = {
     fetchAll(num: string) {
-        return instance.get<Array<CoinType>>(`?limit=${num}`, {});
+        return instance.get<{data: Array<CoinType>}>(`?limit=${num}`, {});
     },
     fetchCoin(id: string) {
         return instance.get<CoinType>(`${id}`, {});
     },
-    fetchMainCoins(mainCoins: Array<string>) {
-        return instance.get<Array<CoinType>>(`?ids=${mainCoins.join()}`, {});
+    fetchMainCoins(oneCoin: string, secondCoin: string, thirdCoin: string) {
+        return instance.get<{data: Array<CoinType>}>(`?ids=${oneCoin},${secondCoin},${thirdCoin}`, {});
     },
     fetchHistoryCoins(idCoin: string, interval: string) {
         return instance.get<Array<HistoryCoinType>>(`${idCoin}/history?interval=${interval}`, {});
@@ -37,6 +37,7 @@ export type CoinType = {
     priceUsd: string,
     changePercent24Hr: string,
     vwap24Hr: string,
+    explorer: string
 };
 
 export type HistoryCoinType = {

@@ -1,12 +1,12 @@
 import {ThunkAction, ThunkDispatch} from "redux-thunk";
-import {CoinType} from "../API/cryptoAPI";
+import {CoinType, cryptoAPI} from "../API/cryptoAPI";
 import {Dispatch} from "react";
 import {InferActionType} from "../App/store";
 
 
 const initialState = {
-    allCoin: null,
-    mainCoin: null
+    allCoin: [],
+    mainCoins: []
 };
 
 export const MainCryptoReduser =
@@ -15,7 +15,7 @@ export const MainCryptoReduser =
             case "MAIN/ALL-CRYPTO":
                 return {...state, allCoin: action.data};
             case "MAIN/MAIN-COIN":
-                return {...state, mainCoin: action.data};
+                return {...state, mainCoins: action.data};
             default:
                 return state;
         }
@@ -30,27 +30,29 @@ export const actionsMainCrypto = {
 
 
 // thunks
-export const cryptoAll = () => async (dispatch: Dispatch<any>) => {
-    // try {
-    //
-    //     await authAPI.me();
-    //     dispatch(actionsForApp.setAppStatus('succeeded'))
-    // } catch (e: any) {
-    //     dispatch(actionsForApp.setAppStatus("succeeded"));
-    //     const error = e.response.data.error === 'you are not authorized /ᐠ-ꞈ-ᐟ\\'
-    //         ? null
-    //         : e.response.data.error
-    //             ? e.response.data.error
-    //             : (e.message + ', more details in the console');
-    //     dispatch(actionsForApp.setAppError(error));
-    // }
+export const getMainCoin = (firstCoin: string, secondCoin: string, thirdCoin: string) => async (dispatch: Dispatch<any>) => {
+    try {
+        let res = await cryptoAPI.fetchMainCoins(firstCoin, secondCoin, thirdCoin);
+        console.log(res.data.data)
+        dispatch(actionsMainCrypto.getMainsCoin(res.data.data))
+    } catch (e: any) {
+        console.log(e)
+    }
+};
+export const getAllCoin = (porcion: string) => async (dispatch: Dispatch<any>) => {
+    try {
+        let res = await cryptoAPI.fetchAll(porcion);
+        dispatch(actionsMainCrypto.getAllCrypto(res.data.data))
+    } catch (e: any) {
+        console.log(e)
+    }
 };
 
 
 // types
 export type InitialStateType = {
-    allCoin: Array<CoinType> | null,
-    mainCoin: Array<CoinType> | null
+    allCoin: Array<CoinType>
+    mainCoins: Array<CoinType>
 };
 export type CryptoActionType = InferActionType<typeof actionsMainCrypto>
 
