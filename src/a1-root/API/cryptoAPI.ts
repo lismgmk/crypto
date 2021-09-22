@@ -14,8 +14,19 @@ export const cryptoAPI = {
     fetchCoin(id: string) {
         return instance.get<{data: CoinType}>(`${id}`, {});
     },
-    fetchMainCoins(oneCoin: string, secondCoin: string, thirdCoin: string) {
-        return instance.get<{data: Array<CoinType>}>(`?ids=${oneCoin},${secondCoin},${thirdCoin}`, {});
+    // fetchMainCoins(oneCoin: string, secondCoin: string, thirdCoin: string) {
+    //     return instance.get<{data: Array<CoinType>}>(`?ids=${oneCoin},${secondCoin},${thirdCoin}`, {});
+    // },
+    fetchMainCoins(arrCoin: Array<string>) {
+        let stringFetch = ''
+        arrCoin.forEach((i, index)=>{
+            if(index == 0){
+                stringFetch = `?ids=${i}`
+            } else{
+                stringFetch += `,${i}`
+            }
+        })
+        return instance.get<{data: Array<CoinType>}>(stringFetch, {});
     },
     fetchHistoryCoins(idCoin: string, interval: string='d1') {
         return instance.get<{data: Array<HistoryCoinType>}>(`${idCoin}/history?interval=${interval}`, {});

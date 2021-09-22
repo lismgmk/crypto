@@ -9,24 +9,24 @@ import {nanoid} from "nanoid";
 
 
 function NaviBar() {
-    const firstCoin = 'bitcoin'
-    const secondCoin = 'ethereum'
-    const thirdCoin = 'monero'
 
+let arrCoin = ['bitcoin', 'ethereum', 'monero']
     const dispatch = useDispatch();
     let mainCoins = useSelector<AppRootStateType, Array<CoinType>>(state => state.allCrypto.mainCoins)
 
-    useEffect(() => {
-            dispatch(getMainCoin(firstCoin, secondCoin, thirdCoin))
-        }, []
-    )
+    // useEffect(() => {
+    //         // dispatch(getMainCoin(firstCoin, secondCoin, thirdCoin))
+    //         dispatch(getMainCoin(arrCoin))
+    //     }, []
+    // )
     return (
 
 
 
         <Navbar
+            style={{color: 'white'}}
             sticky="top"
-            collapseOnSelect expand="lg" bg="light" variant="dark">
+            collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
                 {mainCoins && mainCoins.map(i=>{
                     return<div key={nanoid()}>

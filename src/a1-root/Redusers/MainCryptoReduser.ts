@@ -30,10 +30,13 @@ export const actionsMainCrypto = {
 
 
 // thunks
-export const getMainCoin = (firstCoin: string, secondCoin: string, thirdCoin: string) => async (dispatch: Dispatch<any>) => {
+export const getMainCoin = (
+    arrCoin: Array<string>
+    // firstCoin: string, secondCoin: string, thirdCoin: string
+) => async (dispatch: Dispatch<any>) => {
     try {
-        let res = await cryptoAPI.fetchMainCoins(firstCoin, secondCoin, thirdCoin);
-        console.log(res.data.data)
+        let res = await cryptoAPI.fetchMainCoins(arrCoin);
+        // let res = await cryptoAPI.fetchMainCoins(firstCoin, secondCoin, thirdCoin);
         dispatch(actionsMainCrypto.getMainsCoin(res.data.data))
     } catch (e: any) {
         console.log(e)

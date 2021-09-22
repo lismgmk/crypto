@@ -5,17 +5,31 @@ import {CoinType, HistoryCoinType} from "../API/cryptoAPI";
 import {NavLink} from "react-bootstrap";
 import {getChangedForCoin, getCoin} from "../Redusers/CoinCryptoReduser";
 import {Chart} from "../v4-Chart/Chart";
+import {useLocation} from "react-router";
+import {getMainCoin} from "../Redusers/MainCryptoReduser";
 
+
+interface LocationState {
+
+
+        id: string
+
+}
 
 function CoinCrypto() {
     const dispatch = useDispatch()
-
+    const location = useLocation<LocationState>()
+    const idLocation: string = location.state.id
+    console.log(idLocation)
     let oneCoins = useSelector<AppRootStateType, CoinType | null>(state => state.coinCrypto.coin)
     const [load, setLoad] = useState<string>('loading')
 
     useEffect(() => {
-        if (oneCoins) {
-            dispatch(getChangedForCoin(oneCoins.id))
+        if (idLocation) {
+            debugger
+            // dispatch(getChangedForCoin(oneCoins.id))
+            dispatch(getChangedForCoin(idLocation))
+
         }
         setLoad('')
     }, [])
@@ -24,7 +38,7 @@ function CoinCrypto() {
     if (load === 'loading') {
         return <h5>...loading</h5>
     }
-    if (oneCoins === null) {
+    if (idLocation === null) {
         return <div>
             <h5>There is not some coin</h5>
             <NavLink href={"/Crypto_list"}>Chose coin</NavLink>
@@ -32,10 +46,8 @@ function CoinCrypto() {
     }
     return (
         <div>
-            <div>{oneCoins.id}</div>
-            <div>{oneCoins.symbol}</div>
-            <div>{oneCoins.name}</div>
-            <div>{oneCoins.rank}</div>
+            <div>{idLocation}</div>
+
             <Chart/>
         </div>
     )

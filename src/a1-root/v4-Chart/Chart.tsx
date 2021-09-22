@@ -12,10 +12,12 @@ class Label extends React.Component<{ offset: number, position: string, value: s
 }
 
 export const Chart = () => {
-
+debugger
     let history = useSelector<AppRootStateType, Array<HistoryCoinType> | null>(state => state.coinCrypto.history)
+
     let arr: any = []
     let data = history
+    console.log(data)
     data && data.forEach(i => {
         arr.push({name: new Date(i.time), interval: +i.priceUsd})
     })

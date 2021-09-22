@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useMemo, useState} from 'react'
 import {Col, Container, Row, Table} from "react-bootstrap";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../App/store";
 import {CoinType} from "../API/cryptoAPI";
-import {getAllCoin} from "../Redusers/MainCryptoReduser";
+import {getAllCoin, getMainCoin} from "../Redusers/MainCryptoReduser";
 import {nanoid} from "nanoid";
 import {getCoin} from "../Redusers/CoinCryptoReduser";
 import {Redirect} from "react-router";
@@ -11,34 +11,47 @@ import Walet from "../v3-Walet/Walet";
 import {actionsWaletCrypto} from "../Redusers/WalletCryptoReduser";
 
 
-function AllCrypto() {
+const AllCrypto = () => {
     const dispatch = useDispatch();
 
     let AllCoins = useSelector<AppRootStateType, Array<CoinType>>(state => state.allCrypto.allCoin)
     let oneCoins = useSelector<AppRootStateType, CoinType | null>(state => state.coinCrypto.coin)
-    const [load, setLoad] = useState<string>('loading')
+    // const [load, setLoad] = useState<string>('loading')
+    const [coinId, setCoinId] = useState<string>('')
+    const [flag, setFlag] = useState<boolean>(false)
+    // const arrCoin = ['bitcoin', 'ethereum', 'monero']
+    // let page = 5
+    // useEffect(() => {
+    //     dispatch(getAllCoin('5'))
+    //     // setLoad('')
+    // }, [page])
 
-    useEffect(() => {
-        dispatch(getAllCoin('5'))
-        setLoad('')
-    }, [])
+    // useEffect(() => {
+    //     dispatch(getMainCoin(arrCoin))
+    // }, [arrCoin])
 
 
     const handleClickCoin = async (id: string) => {
-        setLoad('loading')
-        await dispatch(getCoin(id))
-        setLoad('')
+        // setLoad('loading')
+        setCoinId(id)
+        setFlag(true)
+        // setLoad('')
     }
     const handleAddCoin = (name: string, sumbol: string) => {
         dispatch(actionsWaletCrypto.addCoin(name, sumbol))
     }
 
 
-    if (load === 'loading') {
-        return <h5>...loading</h5>
-    }
-    if (oneCoins !== null) {
-        return <Redirect to="/Crypto_coin"/>
+    // if (load === 'loading') {
+    //     return <h5>...loading</h5>
+    // }
+    if (flag) {
+        return <Redirect
+            to={{
+                pathname: "/Crypto_coin",
+                state: {id: coinId}
+            }}
+        />
     }
     return (
         <div>

@@ -1,5 +1,6 @@
 import {AppRootStateType, InferActionType} from "../App/store";
 import {nanoid} from "nanoid";
+import {Dispatch} from "react";
 
 
 const initialState = {
@@ -98,11 +99,10 @@ export const actionsWaletCrypto = {
 }
 
 // thunks
-// export const addCoin = (name: string, symbol: string) => async (dispatch: Dispatch<any>, getState: any) => {
-// debugger
-//     let g = getState.wallet.coinInWallet
-//
-//     console.log(g)
+export const addCoin = () => (dispatch: Dispatch<any>, getState: AppRootStateType) => {
+    let allCoins = getState.allCrypto.allCoin
+// let
+//     console.log(allCoins)
 //     if(g.length === 0){
 //         dispatch(actionsWaletCrypto.addNewCoin(name, symbol))
 //     } else {
@@ -110,10 +110,9 @@ export const actionsWaletCrypto = {
 //             dispatch(actionsWaletCrypto.addNewCoin(name, symbol))
 //         }
 //     }
-//
-//     // else{
-//     //     dispatch(actionsWaletCrypto.setError('такая валюта есть'))
-// }
+
+
+}
 
 
 // types

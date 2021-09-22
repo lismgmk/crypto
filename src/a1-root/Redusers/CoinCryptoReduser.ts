@@ -43,6 +43,8 @@ export const getCoin = (id: string) => async (dispatch: Dispatch<any>) => {
 };
 export const getChangedForCoin = (id: string, int?: string) => async (dispatch: Dispatch<any>) => {
     try {
+
+
         let res = await cryptoAPI.fetchHistoryCoins(id, int);
 
         dispatch(actionsCoinCrypto.getHistoryCoin(res.data.data))
