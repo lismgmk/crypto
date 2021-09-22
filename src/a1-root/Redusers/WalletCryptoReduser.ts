@@ -1,5 +1,4 @@
-import {Dispatch} from "react";
-import {InferActionType} from "../App/store";
+import {AppRootStateType, InferActionType} from "../App/store";
 import {nanoid} from "nanoid";
 
 
@@ -8,26 +7,47 @@ const initialState = {
     startCoastUSD: 0,
     currentCoastUSD: 0,
     difference: 0,
-    differencePercent: 0
-
+    differencePercent: 0,
 };
 
 export const WalletCryptoReduser =
-    (state: InitialStateType = initialState, action: CryptoActionType): InitialStateType => {
+    (state: InitialStateWalletType = initialState, action: CryptoActionType): InitialStateWalletType => {
         switch (action.type) {
             case "WALLET/ADD-COIN":
-                return {
-                    ...state,
-                    coinInWallet: [
-                        ...state.coinInWallet,
-                        {
-                            id: nanoid(),
-                            sum: 0,
-                            name: action.name,
-                            symbol: action.symbol
+                let init = state.coinInWallet
+                if (init.length === 0) {
+                    return {
+                        ...state,
+                        coinInWallet: [
+                            ...state.coinInWallet,
+                            {
+                                id: nanoid(),
+                                sum: 0,
+                                name: action.name,
+                                symbol: action.symbol,
+                                priceUsd: 0
+                            }
+                        ]
+                    }
+                } else {
+                    if (init.filter(i => i.name == action.name).length === 0) {
+                        return {
+                            ...state,
+                            coinInWallet: [
+                                ...state.coinInWallet,
+                                {
+                                    id: nanoid(),
+                                    sum: 0,
+                                    name: action.name,
+                                    symbol: action.symbol,
+                                    priceUsd: 0
+                                }
+                            ]
                         }
-                    ]
-                };
+                    } else {
+                        return state
+                    }
+                }
             case "WALLET/EDIT-SUM":
                 return {
                     ...state,
@@ -36,7 +56,7 @@ export const WalletCryptoReduser =
             case "WALLET/DELETE-COIN":
                 return {
                     ...state,
-                    coinInWallet: state.coinInWallet.filter(i => i.id === action.id)
+                    coinInWallet: state.coinInWallet.filter(i => i.id !== action.id)
                 };
             case "WALLET/ADD-START-COAST":
                 return {
@@ -48,16 +68,17 @@ export const WalletCryptoReduser =
                     ...state,
                     currentCoastUSD: action.num
                 };
-                case "WALLET/ADD-DIFFERENCE":
+            case "WALLET/ADD-DIFFERENCE":
                 return {
                     ...state,
                     difference: action.num
                 };
-                case "WALLET/ADD-DIFFERENCE-PERCENT":
+            case "WALLET/ADD-DIFFERENCE-PERCENT":
                 return {
                     ...state,
                     differencePercent: action.num
                 };
+
             default:
                 return state;
         }
@@ -65,7 +86,7 @@ export const WalletCryptoReduser =
 
 
 // actions
-export const actionsCoinCrypto = {
+export const actionsWaletCrypto = {
     addCoin: (name: string, symbol: string) => ({type: "WALLET/ADD-COIN", name, symbol} as const),
     editSum: (sum: number, id: string) => ({type: "WALLET/EDIT-SUM", sum, id} as const),
     deleteCoin: (id: string) => ({type: "WALLET/DELETE-COIN", id} as const),
@@ -73,15 +94,30 @@ export const actionsCoinCrypto = {
     getCurrentCoastUSD: (num: number) => ({type: "WALLET/ADD-CURRENT-COAST", num} as const),
     getDifference: (num: number) => ({type: "WALLET/ADD-DIFFERENCE", num} as const),
     getDifferencePercent: (num: number) => ({type: "WALLET/ADD-DIFFERENCE-PERCENT", num} as const),
-};
+    setError: (error: string) => ({type: "WALLET/SET-ERROR", error} as const),
+}
 
 // thunks
-export const cryptoCoin = () => async (dispatch: Dispatch<any>) => {
-};
+// export const addCoin = (name: string, symbol: string) => async (dispatch: Dispatch<any>, getState: any) => {
+// debugger
+//     let g = getState.wallet.coinInWallet
+//
+//     console.log(g)
+//     if(g.length === 0){
+//         dispatch(actionsWaletCrypto.addNewCoin(name, symbol))
+//     } else {
+//         if( g.filter(i => i.name === name).length === 0){
+//             dispatch(actionsWaletCrypto.addNewCoin(name, symbol))
+//         }
+//     }
+//
+//     // else{
+//     //     dispatch(actionsWaletCrypto.setError('такая валюта есть'))
+// }
 
 
 // types
-export type InitialStateType = {
+export type InitialStateWalletType = {
     coinInWallet: Array<CoinInWalletType>
     startCoastUSD: number
     currentCoastUSD: number
@@ -94,8 +130,9 @@ export type CoinInWalletType = {
     sum: number
     name: string
     symbol: string
+    priceUsd: number
 }
-export type CryptoActionType = InferActionType<typeof actionsCoinCrypto>
+export type CryptoActionType = InferActionType<typeof actionsWaletCrypto>
 
 
 

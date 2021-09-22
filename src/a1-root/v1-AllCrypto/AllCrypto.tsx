@@ -7,6 +7,8 @@ import {getAllCoin} from "../Redusers/MainCryptoReduser";
 import {nanoid} from "nanoid";
 import {getCoin} from "../Redusers/CoinCryptoReduser";
 import {Redirect} from "react-router";
+import Walet from "../v3-Walet/Walet";
+import {actionsWaletCrypto} from "../Redusers/WalletCryptoReduser";
 
 
 function AllCrypto() {
@@ -27,6 +29,11 @@ function AllCrypto() {
         await dispatch(getCoin(id))
         setLoad('')
     }
+    const handleAddCoin = (name: string, sumbol: string) => {
+        dispatch(actionsWaletCrypto.addCoin(name, sumbol))
+    }
+
+
     if (load === 'loading') {
         return <h5>...loading</h5>
     }
@@ -40,13 +47,21 @@ function AllCrypto() {
                     return <div key={nanoid()}>
                         <div
                             onClick={() => handleClickCoin(i.id)}
-                        >{i.name} </div>
+                        >
+                            {i.name}
+                        </div>
+                        <button
+                            onClick={() => handleAddCoin(i.name, i.symbol)}
+                        >Add to walet
+                        </button>
+
+
                         <span>{i.priceUsd} {i.symbol}</span>
                     </div>
                 })
                 }
 
-
+                <Walet/>
             </Container>
 
 

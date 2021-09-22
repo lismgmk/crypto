@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f11c73bf-c5de-43ff-b37b-631266e2703f" name="Default Changelist" comment="add chart">
+    <list default="true" id="f11c73bf-c5de-43ff-b37b-631266e2703f" name="Default Changelist" comment="add chart/2">
+      <change afterPath="$PROJECT_DIR$/src/a1-root/App/localstorage-utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/a1-root/v3-Walet/InputForWalet.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a1-root/v4-Chart/Chart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v4-Chart/Chart.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a1-root/App/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/App/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a1-root/Redusers/WalletCryptoReduser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/Redusers/WalletCryptoReduser.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a1-root/v1-AllCrypto/AllCrypto.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v1-AllCrypto/AllCrypto.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a1-root/v3-Walet/Walet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v3-Walet/Walet.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +17,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1yP1sWTf8ri2JSXqQr3mIjywKzZ" />
   <component name="ProjectViewState">
@@ -26,18 +37,18 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../My_pet_project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/a1-root/App" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="ts.external.directory.path" value="D:\itKamasutra\offer test 1\crypto\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\itKamasutra\offer test 1\crypto\src\a1-root\App" />
+      <recent name="D:\itKamasutra\offer test 1\crypto\src\a1-root\v3-Walet" />
       <recent name="D:\itKamasutra\offer test 1\crypto\src\a1-root" />
       <recent name="D:\itKamasutra\offer test 1\crypto\src\a1-root\Redusers" />
       <recent name="D:\itKamasutra\offer test 1\crypto\src\a1-root\API" />
-      <recent name="D:\kamasutra\Offer_progects\Cripto\01_Crypto\src\a1-root\NaviBar" />
-      <recent name="D:\kamasutra\Offer_progects\Cripto\01_Crypto\src\a1-root" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\kamasutra\Offer_progects\Cripto\01_Crypto\src\a1-root" />
@@ -74,7 +85,9 @@
       <workItem from="1632217945896" duration="12555000" />
       <workItem from="1632255192620" duration="5583000" />
       <workItem from="1632262080338" duration="481000" />
-      <workItem from="1632262597283" duration="4751000" />
+      <workItem from="1632262597283" duration="5957000" />
+      <workItem from="1632297964498" duration="4100000" />
+      <workItem from="1632304491038" duration="23761000" />
     </task>
     <task id="LOCAL-00001" summary="add Redusers, API">
       <created>1632173180782</created>
@@ -118,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632257927791</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add chart/2">
+      <created>1632270413496</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1632270413496</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,6 +163,7 @@
     <MESSAGE value="add same render" />
     <MESSAGE value="add same render/2" />
     <MESSAGE value="add chart" />
-    <option name="LAST_COMMIT_MESSAGE" value="add chart" />
+    <MESSAGE value="add chart/2" />
+    <option name="LAST_COMMIT_MESSAGE" value="add chart/2" />
   </component>
 </project>
