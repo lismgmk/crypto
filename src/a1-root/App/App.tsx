@@ -5,19 +5,24 @@ import CoinCrypto from "../v2-CoinCrypto/CoinCrypto";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NaviBar from "../NaviBar/NaviBar";
 import {getAllCoin, getMainCoin} from "../Redusers/MainCryptoReduser";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {AppRootStateType} from "./store";
+import {CoinInWalletType} from "../Redusers/WalletCryptoReduser";
 
 
 function App() {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
 
-    const arrCoin = ['bitcoin', 'ethereum', 'monero']
+    let threeCoins = useSelector<AppRootStateType, Array<string>>(state => state.allCrypto.threeMainCoins)
+
+
+    // const arrCoin = ['bitcoin', 'ethereum', 'monero']
     let page = 5
     useEffect(() => {
-        dispatch(getAllCoin('5'))
-        dispatch(getMainCoin(arrCoin))
+        dispatch(getAllCoin('5', threeCoins))
+        // dispatch(getMainCoin(arrCoin))
         // setLoad('')
-    }, [page])
+    }, [page, threeCoins])
 
 
     // useEffect(() => {

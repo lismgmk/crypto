@@ -6,7 +6,8 @@ import {InferActionType} from "../App/store";
 
 const initialState = {
     allCoin: [],
-    mainCoins: []
+    mainCoins: [],
+    threeMainCoins: ['bitcoin', 'ethereum', 'monero']
 };
 
 export const MainCryptoReduser =
@@ -26,6 +27,7 @@ export const MainCryptoReduser =
 export const actionsMainCrypto = {
     getAllCrypto: (data: Array<CoinType>) => ({type: "MAIN/ALL-CRYPTO", data} as const),
     getMainsCoin: (data: Array<CoinType>) => ({type: "MAIN/MAIN-COIN", data} as const),
+    setThreeMainCoins: (data: Array<string>) => ({type: "MAIN/THREE-MAIN-COIN", data} as const),
 };
 
 
@@ -42,10 +44,11 @@ export const getMainCoin = (
         console.log(e)
     }
 };
-export const getAllCoin = (porcion: string) => async (dispatch: Dispatch<any>) => {
+export const getAllCoin = (porcion: string, arrCoin: Array<string>) => async (dispatch: Dispatch<any>) => {
     try {
         let res = await cryptoAPI.fetchAll(porcion);
         dispatch(actionsMainCrypto.getAllCrypto(res.data.data))
+        dispatch(getMainCoin(arrCoin))
     } catch (e: any) {
         console.log(e)
     }
@@ -56,6 +59,7 @@ export const getAllCoin = (porcion: string) => async (dispatch: Dispatch<any>) =
 export type InitialStateType = {
     allCoin: Array<CoinType>
     mainCoins: Array<CoinType>
+    threeMainCoins: Array<string>
 };
 export type CryptoActionType = InferActionType<typeof actionsMainCrypto>
 

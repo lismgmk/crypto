@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../App/store";
-import {actionsWaletCrypto, CoinInWalletType} from "../Redusers/WalletCryptoReduser";
+import {actionsWaletCrypto, CoinInWalletType, getStartandCurrentCost} from "../Redusers/WalletCryptoReduser";
 import {nanoid} from "nanoid";
 import InputForWalet from "./InputForWalet";
 
@@ -13,17 +13,20 @@ function Walet() {
     // const [disable, setDisable] = useState<boolean>(true)
 
     let coins = useSelector<AppRootStateType, Array<CoinInWalletType>>(state => state.wallet.coinInWallet)
+
+    // const reMathWallet = ()=>{
+    //     let sumWallet = 0
+    //     coins.forEach(i => {
+    //         sumWallet += +i.priceUsd * +i.sum
+    //     })
+    //     return sumWallet
+    // }
+
     const handleSubmit = () => {
-        let sumWallet = 0
-       coins.forEach(i=>{
-           sumWallet += +i.priceUsd * +i.sum
-        })
 
-
-
-        dispatch(actionsWaletCrypto.getCurrentCoastUSD(sumWallet))
+        // dispatch(actionsWaletCrypto.getStartCoastUSD(reMathWallet()))
+        dispatch(getStartandCurrentCost())
         setChangeSpan(true)
-       return  console.log(sumWallet)
     }
 
 
@@ -45,14 +48,14 @@ function Walet() {
                     key={nanoid()}
                 >
                     {/*<button disabled={disable}>Block Button</button>*/}
-                        <InputForWalet
-                            name={i.name}
-                            id={i.id}
-                            sum={i.sum}
-                            symbol={i.symbol}
+                    <InputForWalet
+                        name={i.name}
+                        id={i.id}
+                        sum={i.sum}
+                        symbol={i.symbol}
 
                         // setDisable={setDisable}
-                        />
+                    />
 
 
                     <button onClick={() => handleDelete(i.id)}>Delete</button>

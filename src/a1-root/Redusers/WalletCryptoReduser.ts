@@ -2,10 +2,12 @@ import {AppRootStateType, InferActionType} from "../App/store";
 import {nanoid} from "nanoid";
 import {Dispatch} from "react";
 import {actionsCoinCrypto} from "./CoinCryptoReduser";
+import {cryptoAPI} from "../API/cryptoAPI";
 
 
 const initialState = {
     coinInWallet: [],
+    currentCoinInWallet: [],
     startCoastUSD: 0,
     currentCoastUSD: 0,
     difference: 0,
@@ -62,10 +64,12 @@ export const WalletCryptoReduser =
                 };
             case "WALLET/ADD-START-COAST":
                 return {
+
                     ...state,
                     startCoastUSD: action.num
                 };
             case "WALLET/ADD-CURRENT-COAST":
+                debugger
                 return {
                     ...state,
                     currentCoastUSD: action.num
@@ -100,27 +104,39 @@ export const actionsWaletCrypto = {
 }
 
 // thunks
-// export const editCoin = (name: string, symbol: string) => (dispatch: Dispatch<any>, getState: any) => {
-//     let coin = getState().allCrypto.allCoin.filter((i: { id: string; })=>i.id === id )
-//     dispatch(actionsCoinCrypto.getOneCoin(coin[0]))
-//     // let allCoins = getState.allCrypto.allCoin
-// // let
-// //     console.log(allCoins)
-// //     if(g.length === 0){
-// //         dispatch(actionsWaletCrypto.addNewCoin(name, symbol))
-// //     } else {
-// //         if( g.filter(i => i.name === name).length === 0){
-// //             dispatch(actionsWaletCrypto.addNewCoin(name, symbol))
-// //         }
-// //     }
-//
-//
-// }
+export const getStartandCurrentCost =  () => async (dispatch: Dispatch<any>, getState: () => AppRootStateType) => {
+    let coins = getState().wallet.coinInWallet
+    // let coinsNameinWallet: Array<string> = []
+    const reMathWallet = ()=>{
+        let sumWallet = 0
+        coins.forEach((i) => {
+            sumWallet += +i.priceUsd * +i.sum
+            // coinsNameinWallet.push(i.name)
+        })
+        return sumWallet
+    }
+    dispatch(actionsWaletCrypto.getStartCoastUSD(reMathWallet()))
+
+    // let res = await cryptoAPI.fetchMainCoins(coinsNameinWallet);
+    // let sumWallet = 0
+    // let newCoins = res.data.data
+    // const reReMathWallet = ()=>{
+    //
+    //     newCoins.forEach((i) => {
+    //         sumWallet += +i.priceUsd * +i.sum
+    //         coinsNameinWallet.push(i.name)
+    //     })
+    //     return sumWallet
+    // }
+    // dispatch(actionsWaletCrypto.getCurrentCoastUSD(reReMathWallet( )))
+
+}
 
 
 // types
 export type InitialStateWalletType = {
     coinInWallet: Array<CoinInWalletType>
+    currentCoinInWallet: Array<CoinInWalletType>
     startCoastUSD: number
     currentCoastUSD: number
     difference: number

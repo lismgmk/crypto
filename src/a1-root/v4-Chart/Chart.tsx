@@ -12,7 +12,6 @@ class Label extends React.Component<{ offset: number, position: string, value: s
 }
 
 export const Chart = () => {
-debugger
     let history = useSelector<AppRootStateType, Array<HistoryCoinType> | null>(state => state.coinCrypto.history)
 
     let arr: any = []

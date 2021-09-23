@@ -20,6 +20,8 @@ const NaviBar = () => {
     //         dispatch(getMainCoin(arrCoin))
     //     }, []
     // )
+
+    console.log(startCoast)
     return (
 
 

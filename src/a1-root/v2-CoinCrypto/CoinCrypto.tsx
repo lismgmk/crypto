@@ -10,10 +10,7 @@ import {getMainCoin} from "../Redusers/MainCryptoReduser";
 
 
 interface LocationState {
-
-
-        id: string
-
+    id: string
 }
 
 function CoinCrypto() {
@@ -22,42 +19,37 @@ function CoinCrypto() {
     const idLocation: string = location.state.id
     console.log(idLocation)
     let oneCoins = useSelector<AppRootStateType, CoinType | null>(state => state.coinCrypto.coin)
-    // const [load, setLoad] = useState<string>('loading')
 
-    useEffect(() => {
-        if (idLocation) {
-            // dispatch(getChangedForCoin(oneCoins.id))
-            dispatch(getChangedForCoin(idLocation))
-
-        }
-        // setLoad('')
-    }, [idLocation])
-
-
-
-    // if (load === 'loading') {
-    //     return <h5>...loading</h5>
-    // }
-    if (idLocation === null) {
-        return <div>
-            <h5>There is not some coin</h5>
-            <NavLink href={"/Crypto_list"}>Chose coin</NavLink>
-        </div>
-    }
-    return (
-        <div>
-            <div>{idLocation}</div>
-            {oneCoins && <div>
-                <div>{oneCoins.name}</div>
-                <div>{oneCoins.explorer}</div>
-                <div>{oneCoins.priceUsd}</div>
-            </div>
-
-            }
-
-            <Chart/>
-        </div>
+    useEffect(()=>{
+        dispatch(getChangedForCoin(idLocation))
+        }, [idLocation]
     )
+
+    if (idLocation !== '') {
+
+        return (
+            <div>
+                <div>{idLocation}</div>
+                {oneCoins && <div>
+                    <div>{oneCoins.name}</div>
+                    <div>{oneCoins.explorer}</div>
+                    <div>{oneCoins.priceUsd}</div>
+                </div>
+
+                }
+
+                <Chart/>
+            </div>
+        )
+    } else {
+        return (
+            <div>
+                <h5>There is not some coin</h5>
+                <NavLink href={"/Crypto_list"}>Chose coin</NavLink>
+            </div>
+        )
+    }
+
 }
 
 export default CoinCrypto;
