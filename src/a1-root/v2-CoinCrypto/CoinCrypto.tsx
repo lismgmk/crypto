@@ -22,22 +22,22 @@ function CoinCrypto() {
     const idLocation: string = location.state.id
     console.log(idLocation)
     let oneCoins = useSelector<AppRootStateType, CoinType | null>(state => state.coinCrypto.coin)
-    const [load, setLoad] = useState<string>('loading')
+    // const [load, setLoad] = useState<string>('loading')
 
     useEffect(() => {
         if (idLocation) {
-            debugger
             // dispatch(getChangedForCoin(oneCoins.id))
             dispatch(getChangedForCoin(idLocation))
 
         }
-        setLoad('')
-    }, [])
+        // setLoad('')
+    }, [idLocation])
 
 
-    if (load === 'loading') {
-        return <h5>...loading</h5>
-    }
+
+    // if (load === 'loading') {
+    //     return <h5>...loading</h5>
+    // }
     if (idLocation === null) {
         return <div>
             <h5>There is not some coin</h5>
@@ -47,6 +47,13 @@ function CoinCrypto() {
     return (
         <div>
             <div>{idLocation}</div>
+            {oneCoins && <div>
+                <div>{oneCoins.name}</div>
+                <div>{oneCoins.explorer}</div>
+                <div>{oneCoins.priceUsd}</div>
+            </div>
+
+            }
 
             <Chart/>
         </div>

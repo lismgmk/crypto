@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f11c73bf-c5de-43ff-b37b-631266e2703f" name="Default Changelist" comment="add localstorage wallet">
+    <list default="true" id="f11c73bf-c5de-43ff-b37b-631266e2703f" name="Default Changelist" comment="cors">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a1-root/API/cryptoAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/API/cryptoAPI.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/a1-root/App/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/App/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/a1-root/NaviBar/NaviBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/NaviBar/NaviBar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/a1-root/Redusers/CoinCryptoReduser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/Redusers/CoinCryptoReduser.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a1-root/Redusers/MainCryptoReduser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/Redusers/MainCryptoReduser.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/a1-root/Redusers/WalletCryptoReduser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/Redusers/WalletCryptoReduser.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/a1-root/v1-AllCrypto/AllCrypto.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v1-AllCrypto/AllCrypto.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/a1-root/v2-CoinCrypto/CoinCrypto.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v2-CoinCrypto/CoinCrypto.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a1-root/v4-Chart/Chart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v4-Chart/Chart.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a1-root/v3-Walet/Walet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v3-Walet/Walet.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +38,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../My_pet_project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ToDoList" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="ts.external.directory.path" value="D:\itKamasutra\offer test 1\crypto\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -90,7 +88,7 @@
       <workItem from="1632262080338" duration="481000" />
       <workItem from="1632262597283" duration="5957000" />
       <workItem from="1632297964498" duration="4100000" />
-      <workItem from="1632304491038" duration="35827000" />
+      <workItem from="1632304491038" duration="41802000" />
     </task>
     <task id="LOCAL-00001" summary="add Redusers, API">
       <created>1632173180782</created>
@@ -148,7 +146,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632341011700</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="cors">
+      <created>1632354027969</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1632354027969</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,6 +180,7 @@
     <MESSAGE value="add chart" />
     <MESSAGE value="add chart/2" />
     <MESSAGE value="add localstorage wallet" />
-    <option name="LAST_COMMIT_MESSAGE" value="add localstorage wallet" />
+    <MESSAGE value="cors" />
+    <option name="LAST_COMMIT_MESSAGE" value="cors" />
   </component>
 </project>

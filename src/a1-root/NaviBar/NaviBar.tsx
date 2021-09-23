@@ -8,11 +8,12 @@ import {getMainCoin} from "../Redusers/MainCryptoReduser";
 import {nanoid} from "nanoid";
 
 
-function NaviBar() {
+const NaviBar = () => {
 
-let arrCoin = ['bitcoin', 'ethereum', 'monero']
+    let arrCoin = ['bitcoin', 'ethereum', 'monero']
     const dispatch = useDispatch();
     let mainCoins = useSelector<AppRootStateType, Array<CoinType>>(state => state.allCrypto.mainCoins)
+    let startCoast = useSelector<AppRootStateType, number>(state => state.wallet.startCoastUSD)
 
     // useEffect(() => {
     //         // dispatch(getMainCoin(firstCoin, secondCoin, thirdCoin))
@@ -22,27 +23,20 @@ let arrCoin = ['bitcoin', 'ethereum', 'monero']
     return (
 
 
-
         <Navbar
             style={{color: 'white'}}
             sticky="top"
             collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-                {mainCoins && mainCoins.map(i=>{
-                    return<div key={nanoid()}>
+                {mainCoins && mainCoins.map(i => {
+                    return <div key={nanoid()}>
                         <div>{i.name}</div>
                         <div>{i.priceUsd}</div>
                         <div>{i.symbol}</div>
                     </div>
                 })
                 }
-
-                {/*<NavbarBrand >Crypto</NavbarBrand>*/}
-                {/*<NavbarToggle aria-controls="responsive-navbar-nav"/>*/}
-
-                {/*<Nav>*/}
-                {/*    <NavLink href="/Crypto_list">All Crypto Coins</NavLink>*/}
-                {/*</Nav>*/}
+                <div style={{color: 'red'}}>{startCoast}</div>
 
                 <Nav>
                     <Button variant="primary"

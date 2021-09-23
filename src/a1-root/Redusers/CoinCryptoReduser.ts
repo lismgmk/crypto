@@ -1,7 +1,7 @@
 import {ThunkAction, ThunkDispatch} from "redux-thunk";
 import {CoinType, cryptoAPI, HistoryCoinType} from "../API/cryptoAPI";
 import {Dispatch} from "react";
-import {InferActionType} from "../App/store";
+import {AppRootStateType, InferActionType} from "../App/store";
 import {actionsMainCrypto} from "./MainCryptoReduser";
 
 
@@ -32,14 +32,10 @@ export const actionsCoinCrypto = {
 
 
 // thunks
-export const getCoin = (id: string) => async (dispatch: Dispatch<any>) => {
-    try {
-        let res = await cryptoAPI.fetchCoin(id);
-        console.log(res.data.data)
-        dispatch(actionsCoinCrypto.getOneCoin(res.data.data))
-    } catch (e: any) {
-        console.log(e)
-    }
+export const getCoin = (id: string) => (dispatch: Dispatch<any>,  getState: any) => {
+
+    let coin = getState().allCrypto.allCoin.filter((i: { id: string; })=>i.id === id )
+    dispatch(actionsCoinCrypto.getOneCoin(coin[0]))
 };
 export const getChangedForCoin = (id: string, int?: string) => async (dispatch: Dispatch<any>) => {
     try {
@@ -48,6 +44,7 @@ export const getChangedForCoin = (id: string, int?: string) => async (dispatch: 
         let res = await cryptoAPI.fetchHistoryCoins(id, int);
 
         dispatch(actionsCoinCrypto.getHistoryCoin(res.data.data))
+        dispatch(getCoin(id))
     } catch (e: any) {
         console.log(e)
     }

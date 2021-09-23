@@ -13,10 +13,20 @@ function Walet() {
     // const [disable, setDisable] = useState<boolean>(true)
 
     let coins = useSelector<AppRootStateType, Array<CoinInWalletType>>(state => state.wallet.coinInWallet)
-    const handleSubmit = (value: number, id: string) => {
-        dispatch(actionsWaletCrypto.editSum(value, id))
+    const handleSubmit = () => {
+        let sumWallet = 0
+       coins.forEach(i=>{
+           sumWallet += +i.priceUsd * +i.sum
+        })
+
+
+
+        dispatch(actionsWaletCrypto.getCurrentCoastUSD(sumWallet))
         setChangeSpan(true)
+       return  console.log(sumWallet)
     }
+
+
     const handleDelete = (id: string) => {
         dispatch(actionsWaletCrypto.deleteCoin(id))
     }
@@ -49,7 +59,7 @@ function Walet() {
                 </div>
             })
             }
-            <button onClick={()=>handleSubmit}>Submit</button>
+            <button onClick={handleSubmit}>Submit</button>
 
         </div>
     )

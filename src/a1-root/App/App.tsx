@@ -18,6 +18,8 @@ function App() {
         dispatch(getMainCoin(arrCoin))
         // setLoad('')
     }, [page])
+
+
     // useEffect(() => {
     //     dispatch(getAllCoin('5'))
     //

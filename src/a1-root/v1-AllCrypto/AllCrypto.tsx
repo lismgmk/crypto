@@ -5,7 +5,7 @@ import {AppRootStateType} from "../App/store";
 import {CoinType} from "../API/cryptoAPI";
 import {getAllCoin, getMainCoin} from "../Redusers/MainCryptoReduser";
 import {nanoid} from "nanoid";
-import {getCoin} from "../Redusers/CoinCryptoReduser";
+import {getChangedForCoin, getCoin} from "../Redusers/CoinCryptoReduser";
 import {Redirect} from "react-router";
 import Walet from "../v3-Walet/Walet";
 import {actionsWaletCrypto} from "../Redusers/WalletCryptoReduser";
@@ -37,8 +37,8 @@ const AllCrypto = () => {
         setFlag(true)
         // setLoad('')
     }
-    const handleAddCoin = (name: string, sumbol: string) => {
-        dispatch(actionsWaletCrypto.addCoin(name, sumbol))
+    const handleAddCoin = (name: string, sumbol: string, priceUsd: string) => {
+        dispatch(actionsWaletCrypto.addCoin(name, sumbol, priceUsd))
     }
 
 
@@ -46,6 +46,8 @@ const AllCrypto = () => {
     //     return <h5>...loading</h5>
     // }
     if (flag) {
+        // dispatch(getChangedForCoin(coinId))
+        // dispatch(getCoin(coinId))
         return <Redirect
             to={{
                 pathname: "/Crypto_coin",
@@ -64,7 +66,7 @@ const AllCrypto = () => {
                             {i.name}
                         </div>
                         <button
-                            onClick={() => handleAddCoin(i.name, i.symbol)}
+                            onClick={() => handleAddCoin(i.name, i.symbol, i.priceUsd)}
                         >Add to walet
                         </button>
 
@@ -82,4 +84,4 @@ const AllCrypto = () => {
     )
 }
 
-export default AllCrypto;
+export default AllCrypto

@@ -1,6 +1,7 @@
 import {AppRootStateType, InferActionType} from "../App/store";
 import {nanoid} from "nanoid";
 import {Dispatch} from "react";
+import {actionsCoinCrypto} from "./CoinCryptoReduser";
 
 
 const initialState = {
@@ -26,7 +27,7 @@ export const WalletCryptoReduser =
                                 sum: 0,
                                 name: action.name,
                                 symbol: action.symbol,
-                                priceUsd: 0
+                                priceUsd: action.priceUsd
                             }
                         ]
                     }
@@ -41,7 +42,7 @@ export const WalletCryptoReduser =
                                     sum: 0,
                                     name: action.name,
                                     symbol: action.symbol,
-                                    priceUsd: 0
+                                    priceUsd: action.priceUsd
                                 }
                             ]
                         }
@@ -88,7 +89,7 @@ export const WalletCryptoReduser =
 
 // actions
 export const actionsWaletCrypto = {
-    addCoin: (name: string, symbol: string) => ({type: "WALLET/ADD-COIN", name, symbol} as const),
+    addCoin: (name: string, symbol: string, priceUsd: string) => ({type: "WALLET/ADD-COIN", name, symbol, priceUsd} as const),
     editSum: (sum: number, id: string) => ({type: "WALLET/EDIT-SUM", sum, id} as const),
     deleteCoin: (id: string) => ({type: "WALLET/DELETE-COIN", id} as const),
     getStartCoastUSD: (num: number) => ({type: "WALLET/ADD-START-COAST", num} as const),
@@ -99,20 +100,22 @@ export const actionsWaletCrypto = {
 }
 
 // thunks
-export const addCoin = () => (dispatch: Dispatch<any>, getState: AppRootStateType) => {
-    let allCoins = getState.allCrypto.allCoin
-// let
-//     console.log(allCoins)
-//     if(g.length === 0){
-//         dispatch(actionsWaletCrypto.addNewCoin(name, symbol))
-//     } else {
-//         if( g.filter(i => i.name === name).length === 0){
-//             dispatch(actionsWaletCrypto.addNewCoin(name, symbol))
-//         }
-//     }
-
-
-}
+// export const editCoin = (name: string, symbol: string) => (dispatch: Dispatch<any>, getState: any) => {
+//     let coin = getState().allCrypto.allCoin.filter((i: { id: string; })=>i.id === id )
+//     dispatch(actionsCoinCrypto.getOneCoin(coin[0]))
+//     // let allCoins = getState.allCrypto.allCoin
+// // let
+// //     console.log(allCoins)
+// //     if(g.length === 0){
+// //         dispatch(actionsWaletCrypto.addNewCoin(name, symbol))
+// //     } else {
+// //         if( g.filter(i => i.name === name).length === 0){
+// //             dispatch(actionsWaletCrypto.addNewCoin(name, symbol))
+// //         }
+// //     }
+//
+//
+// }
 
 
 // types
@@ -129,7 +132,7 @@ export type CoinInWalletType = {
     sum: number
     name: string
     symbol: string
-    priceUsd: number
+    priceUsd: string
 }
 export type CryptoActionType = InferActionType<typeof actionsWaletCrypto>
 
