@@ -19,12 +19,12 @@ const AllCrypto = () => {
     // const [load, setLoad] = useState<string>('loading')
     const [coinId, setCoinId] = useState<string>('')
     const [flag, setFlag] = useState<boolean>(false)
-    // const arrCoin = ['bitcoin', 'ethereum', 'monero']
-    // let page = 5
-    // useEffect(() => {
-    //     dispatch(getAllCoin('5'))
-    //     // setLoad('')
-    // }, [page])
+    const arrCoin = ['bitcoin', 'ethereum', 'monero']
+    let page = 5
+    useEffect(() => {
+        dispatch(getAllCoin('5'))
+        // setLoad('')
+    }, [page])
 
     // useEffect(() => {
     //     dispatch(getMainCoin(arrCoin))

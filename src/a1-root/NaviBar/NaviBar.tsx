@@ -15,11 +15,11 @@ const NaviBar = () => {
     let mainCoins = useSelector<AppRootStateType, Array<CoinType>>(state => state.allCrypto.mainCoins)
     let startCoast = useSelector<AppRootStateType, number>(state => state.wallet.startCoastUSD)
 
-    // useEffect(() => {
-    //         // dispatch(getMainCoin(firstCoin, secondCoin, thirdCoin))
-    //         dispatch(getMainCoin(arrCoin))
-    //     }, []
-    // )
+    useEffect(() => {
+            // dispatch(getMainCoin(firstCoin, secondCoin, thirdCoin))
+            dispatch(getMainCoin(arrCoin))
+        }, []
+    )
 
     console.log(startCoast)
     return (

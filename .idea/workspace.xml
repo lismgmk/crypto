@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f11c73bf-c5de-43ff-b37b-631266e2703f" name="Default Changelist" comment="add wallet coast">
+    <list default="true" id="f11c73bf-c5de-43ff-b37b-631266e2703f" name="Default Changelist" comment="cors fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/a1-root/App/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/App/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/a1-root/NaviBar/NaviBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/NaviBar/NaviBar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/a1-root/Redusers/MainCryptoReduser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/Redusers/MainCryptoReduser.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a1-root/Redusers/WalletCryptoReduser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/Redusers/WalletCryptoReduser.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a1-root/v1-AllCrypto/AllCrypto.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v1-AllCrypto/AllCrypto.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/a1-root/v2-CoinCrypto/CoinCrypto.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v2-CoinCrypto/CoinCrypto.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a1-root/v3-Walet/Walet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v3-Walet/Walet.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a1-root/v4-Chart/Chart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v4-Chart/Chart.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +89,8 @@
       <workItem from="1632304491038" duration="41864000" />
       <workItem from="1632409387207" duration="11792000" />
       <workItem from="1632427454876" duration="645000" />
-      <workItem from="1632428648820" duration="1882000" />
+      <workItem from="1632428648820" duration="3371000" />
+      <workItem from="1632477142868" duration="1580000" />
     </task>
     <task id="LOCAL-00001" summary="add Redusers, API">
       <created>1632173180782</created>
@@ -163,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632360087825</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="cors fix">
+      <created>1632435231611</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1632435231611</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,6 +198,7 @@
     <MESSAGE value="add localstorage wallet" />
     <MESSAGE value="cors" />
     <MESSAGE value="add wallet coast" />
-    <option name="LAST_COMMIT_MESSAGE" value="add wallet coast" />
+    <MESSAGE value="cors fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="cors fix" />
   </component>
 </project>

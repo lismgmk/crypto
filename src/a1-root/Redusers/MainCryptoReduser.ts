@@ -34,7 +34,6 @@ export const actionsMainCrypto = {
 // thunks
 export const getMainCoin = (
     arrCoin: Array<string>
-    // firstCoin: string, secondCoin: string, thirdCoin: string
 ) => async (dispatch: Dispatch<any>) => {
     try {
         let res = await cryptoAPI.fetchMainCoins(arrCoin);
@@ -44,11 +43,20 @@ export const getMainCoin = (
         console.log(e)
     }
 };
-export const getAllCoin = (porcion: string, arrCoin: Array<string>) => async (dispatch: Dispatch<any>) => {
+// export const getAllCoin = (porcion: string, arrCoin: Array<string>) => async (dispatch: Dispatch<any>) => {
+//     try {
+//         let res = await cryptoAPI.fetchAll(porcion);
+//         dispatch(actionsMainCrypto.getAllCrypto(res.data.data))
+//         dispatch(getMainCoin(arrCoin))
+//     } catch (e: any) {
+//         console.log(e)
+//     }
+// };
+export const getAllCoin = (porcion: string) => async (dispatch: Dispatch<any>) => {
     try {
         let res = await cryptoAPI.fetchAll(porcion);
         dispatch(actionsMainCrypto.getAllCrypto(res.data.data))
-        dispatch(getMainCoin(arrCoin))
+
     } catch (e: any) {
         console.log(e)
     }

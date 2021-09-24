@@ -25,8 +25,14 @@ function CoinCrypto() {
         }, [idLocation]
     )
 
-    if (idLocation !== '') {
-
+    if (idLocation === '') {
+        return (
+            <div>
+                <h5>There is not some coin</h5>
+                <NavLink href={"/Crypto_list"}>Chose coin</NavLink>
+            </div>
+        )
+    }
         return (
             <div>
                 <div>{idLocation}</div>
@@ -41,14 +47,8 @@ function CoinCrypto() {
                 <Chart/>
             </div>
         )
-    } else {
-        return (
-            <div>
-                <h5>There is not some coin</h5>
-                <NavLink href={"/Crypto_list"}>Chose coin</NavLink>
-            </div>
-        )
-    }
+
+
 
 }
 

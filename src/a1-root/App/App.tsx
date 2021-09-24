@@ -18,11 +18,11 @@ function App() {
 
     // const arrCoin = ['bitcoin', 'ethereum', 'monero']
     let page = 5
-    useEffect(() => {
-        dispatch(getAllCoin('5', threeCoins))
-        // dispatch(getMainCoin(arrCoin))
-        // setLoad('')
-    }, [page, threeCoins])
+    // useEffect(() => {
+    //     dispatch(getAllCoin('5', threeCoins))
+    //     // dispatch(getMainCoin(arrCoin))
+    //     // setLoad('')
+    // }, [page, threeCoins])
 
 
     // useEffect(() => {
