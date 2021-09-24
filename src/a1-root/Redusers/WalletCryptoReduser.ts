@@ -69,7 +69,6 @@ export const WalletCryptoReduser =
                     startCoastUSD: action.num
                 };
             case "WALLET/ADD-CURRENT-COAST":
-                debugger
                 return {
                     ...state,
                     currentCoastUSD: action.num
@@ -116,19 +115,55 @@ export const getStartandCurrentCost =  () => async (dispatch: Dispatch<any>, get
         return sumWallet
     }
     dispatch(actionsWaletCrypto.getStartCoastUSD(reMathWallet()))
+    dispatch(actionsWaletCrypto.getCurrentCoastUSD(reMathWallet()))
 
-    // let res = await cryptoAPI.fetchMainCoins(coinsNameinWallet);
-    // let sumWallet = 0
-    // let newCoins = res.data.data
-    // const reReMathWallet = ()=>{
+}
+export const getCurrentCost =  () => async (dispatch: Dispatch<any>, getState: () => AppRootStateType) => {
+    let coins = getState().wallet.coinInWallet
+    let coinsNameinWallet: Array<string> = []
+
+        coins.forEach((i) => {
+            coinsNameinWallet.push(i.name)
+        })
+    console.log(coins[0].priceUsd)
+    // dispatch(actionsWaletCrypto.getStartCoastUSD(reMathWallet()))
+    // dispatch(actionsWaletCrypto.getCurrentCoastUSD(reMathWallet()))
+
+    let res = await cryptoAPI.fetchMainCoins(coinsNameinWallet);
+    let sumWallet = 0
+    let newCoins = res.data.data
+    // console.log(newCoins[0].priceUsd)
+
+    for(let i=0; i< coins.length; i++){
+        sumWallet += +newCoins[i].priceUsd * +coins[i].sum
+    }
+    console.log(sumWallet)
+    // let newArrCurrent: any[] = []
+    // for(let i = 0; i < newCoins.length; i++){
+    //     newArrCurrent.push({
+    //         id: newCoins[i].id,
+    //         sum: 0,
+    //         name: newCoins[i].name,
+    //         symbol: newCoins[i].symbol,
+    //         priceUsd: newCoins[i].priceUsd
     //
-    //     newCoins.forEach((i) => {
+    //     })
+    //     for(let j = 0; j < newCoins.length; j++){
+    //         if(newArrCurrent[i].name === coins[j].name){
+    //             newArrCurrent[i].sum = coins[j].sum
+    //         }
+    //     }
+    // }
+    // const reMathWallet = ()=>{
+    //     let sumWallet = 0
+    //     newArrCurrent.forEach((i) => {
     //         sumWallet += +i.priceUsd * +i.sum
-    //         coinsNameinWallet.push(i.name)
+    //         // coinsNameinWallet.push(i.name)
     //     })
     //     return sumWallet
     // }
-    // dispatch(actionsWaletCrypto.getCurrentCoastUSD(reReMathWallet( )))
+
+    dispatch(actionsWaletCrypto.getCurrentCoastUSD(sumWallet))
 
 }
 

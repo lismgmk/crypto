@@ -38,6 +38,7 @@ const AllCrypto = () => {
         // setLoad('')
     }
     const handleAddCoin = (name: string, sumbol: string, priceUsd: string) => {
+        console.log(name)
         dispatch(actionsWaletCrypto.addCoin(name, sumbol, priceUsd))
     }
 
@@ -66,7 +67,7 @@ const AllCrypto = () => {
                             {i.name}
                         </div>
                         <button
-                            onClick={() => handleAddCoin(i.name, i.symbol, i.priceUsd)}
+                            onClick={() => handleAddCoin(i.id, i.symbol, i.priceUsd)}
                         >Add to walet
                         </button>
 
