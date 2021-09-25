@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../App/store";
 import {CoinType} from "../API/cryptoAPI";
 import {NavLink} from "react-bootstrap";
-import {getChangedForCoin, getCoin} from "../Redusers/CoinCryptoReduser";
+import {getChangedForCoin} from "../Redusers/CoinCryptoReduser";
 import {Chart} from "../v4-Chart/Chart";
 import {useLocation} from "react-router";
 
@@ -20,7 +20,7 @@ const CoinCrypto = React.memo( () => {
     let oneCoins = useSelector<AppRootStateType, CoinType | null>(state => state.coinCrypto.coin)
 
     useEffect(() => {
-            getCoin(idLocation)
+            // getCoin(idLocation)
             dispatch(getChangedForCoin(idLocation))
 
         }, [idLocation]

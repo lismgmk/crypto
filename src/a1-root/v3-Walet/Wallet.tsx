@@ -9,6 +9,7 @@ import {
 } from "../Redusers/WalletCryptoReduser";
 import {nanoid} from "nanoid";
 import InputForWalet from "./InputForWalet";
+import {Button} from "../common/Button/Button";
 
 
 const Wallet = React.memo(() => {
@@ -49,8 +50,14 @@ const Wallet = React.memo(() => {
                         sum={i.sum}
                         symbol={i.symbol}
                     />
+                    <Button
+                        width={80}
+                        color='red'
+                        rounded
+                        onClick={() => handleDelete(i.id)}
+                    >Delete</Button>
 
-                    <button onClick={() => handleDelete(i.id)}>Delete</button>
+                    {/*<button onClick={() => handleDelete(i.id)}>Delete</button>*/}
                 </div>
             })
             }

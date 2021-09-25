@@ -52,9 +52,9 @@ export const getMainCoin = (
 //         console.log(e)
 //     }
 // };
-export const getAllCoin = (porcion: string) => async (dispatch: Dispatch<any>) => {
+export const getAllCoin = (porcion: number, currentPage: number) => async (dispatch: Dispatch<any>) => {
     try {
-        let res = await cryptoAPI.fetchAll(porcion);
+        let res = await cryptoAPI.fetchAll(porcion, currentPage);
         dispatch(actionsMainCrypto.getAllCrypto(res.data.data))
 
     } catch (e: any) {

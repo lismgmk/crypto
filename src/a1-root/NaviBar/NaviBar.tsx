@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect} from 'react'
-import {Button, Container, Nav, Navbar, NavbarBrand} from "react-bootstrap";
+import {Button, Container, Nav, Navbar} from "react-bootstrap";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../App/store";
 import {CoinType} from "../API/cryptoAPI";

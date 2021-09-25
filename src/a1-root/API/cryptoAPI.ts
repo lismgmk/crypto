@@ -7,8 +7,8 @@ export const instance = axios.create({
 
 // api
 export const cryptoAPI = {
-    fetchAll(num: string) {
-        return instance.get<{data: Array<CoinType>}>(`?limit=${num}`, {});
+    fetchAll(num: number, currentPage: number) {
+        return instance.get<{data: Array<CoinType>}>(`?limit=${num}&offset=${currentPage}`, {});
     },
     fetchCoin(id: string) {
         return instance.get<{data: CoinType}>(`${id}`, {});

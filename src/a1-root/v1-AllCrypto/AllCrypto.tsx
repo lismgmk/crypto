@@ -5,9 +5,11 @@ import {AppRootStateType} from "../App/store";
 import {CoinType} from "../API/cryptoAPI";
 import {getAllCoin} from "../Redusers/MainCryptoReduser";
 import {nanoid} from "nanoid";
-import { getCoin} from "../Redusers/CoinCryptoReduser";
 import {Link, Redirect} from "react-router-dom";
 import {actionsWaletCrypto} from "../Redusers/WalletCryptoReduser";
+import Checkbox from "../common/Checkbox/Checkbox";
+import {PaginationWrapper} from "../common/Pagination/PaginationWrapper";
+import {actionsForPagination} from "../Redusers/paginationReduser";
 
 
 const AllCrypto = React.memo( () => {
@@ -15,24 +17,53 @@ const AllCrypto = React.memo( () => {
 
     let AllCoins = useSelector<AppRootStateType, Array<CoinType>>(state => state.allCrypto.allCoin)
     const [coinId, setCoinId] = useState<string>('')
+    // const [nameCoin, setNameCoin] = useState<string>('')
     const [flag, setFlag] = useState<boolean>(false)
     let page = 5
-    useEffect(() => {
-        dispatch(getAllCoin('5'))
-    }, [page])
 
-    const handleClickCoin = async (id: string) => {
+
+  const pageTotalCount = useSelector<AppRootStateType, number>(state => state.pagination.pageTotalCount)
+  const currentPage = useSelector<AppRootStateType, number>(state => state.pagination.page)
+  const pageCount = useSelector<AppRootStateType, number>(state => state.pagination.pageCount)
+
+
+
+   const setPageCount = (page: number)=>{
+        dispatch(actionsForPagination.setPageCount(page))
+       // setNeedlyPage(page*pageCount)
+   }
+
+
+    const [needlyPage, setNeedlyPage] = useState(0)
+
+   const setPage = (page: number)=>{
+        dispatch(actionsForPagination.setPage(page))
+       setNeedlyPage((page-1)*pageCount)
+   }
+
+
+
+
+
+    useEffect(() => {
+        dispatch(getAllCoin(pageCount, needlyPage))
+    }, [pageCount, needlyPage])
+
+
+
+
+    const handleClickCoin = (id: string) => {
         setCoinId(id)
         setFlag(true)
     }
 
     const handleAddCoin = (name: string, sumbol: string, priceUsd: string) => {
         console.log(name)
+        // setNameCoin(name)
         dispatch(actionsWaletCrypto.addCoin(name, sumbol, priceUsd))
     }
 
     if (flag) {
-        dispatch(getCoin(coinId))
         return <Redirect
             to={{
                 pathname: "/Crypto_coin",
@@ -49,8 +80,15 @@ const AllCrypto = React.memo( () => {
                         <div
                             onClick={() => handleClickCoin(i.id)}
                         >
+
                             {i.name}
                         </div>
+
+                        {/*<Checkbox*/}
+
+                        {/*    onChange={e => handleAddCoin(i.id, i.symbol, i.priceUsd)}*/}
+                        {/*>Add to</Checkbox>*/}
+
                         <button
                             onClick={() => handleAddCoin(i.id, i.symbol, i.priceUsd)}
                         >Add to walet
@@ -60,6 +98,15 @@ const AllCrypto = React.memo( () => {
                     </div>
                 })
                 }
+
+                <PaginationWrapper
+                    cardPacksTotalCount={pageTotalCount}
+                    currentPage={currentPage}
+                    pageCount={pageCount}
+                    setPackPageCount={setPageCount}
+                    setPackPage={setPage}
+                />
+
                 <Link to="/Crypto_wallet">Wallet</Link>
             </Container>
         </div>
