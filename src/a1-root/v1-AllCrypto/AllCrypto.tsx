@@ -1,54 +1,38 @@
-import React, {useEffect, useMemo, useState} from 'react'
-import {Col, Container, Row, Table} from "react-bootstrap";
+import React, {useEffect, useState} from 'react'
+import { Container } from "react-bootstrap";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../App/store";
 import {CoinType} from "../API/cryptoAPI";
-import {getAllCoin, getMainCoin} from "../Redusers/MainCryptoReduser";
+import {getAllCoin} from "../Redusers/MainCryptoReduser";
 import {nanoid} from "nanoid";
-import {getChangedForCoin, getCoin} from "../Redusers/CoinCryptoReduser";
-import {Redirect} from "react-router";
-import Walet from "../v3-Walet/Walet";
+import { getCoin} from "../Redusers/CoinCryptoReduser";
+import {Link, Redirect} from "react-router-dom";
 import {actionsWaletCrypto} from "../Redusers/WalletCryptoReduser";
 
 
-const AllCrypto = () => {
+const AllCrypto = React.memo( () => {
     const dispatch = useDispatch();
 
     let AllCoins = useSelector<AppRootStateType, Array<CoinType>>(state => state.allCrypto.allCoin)
-    let oneCoins = useSelector<AppRootStateType, CoinType | null>(state => state.coinCrypto.coin)
-    // const [load, setLoad] = useState<string>('loading')
     const [coinId, setCoinId] = useState<string>('')
     const [flag, setFlag] = useState<boolean>(false)
-    const arrCoin = ['bitcoin', 'ethereum', 'monero']
     let page = 5
     useEffect(() => {
         dispatch(getAllCoin('5'))
-        // setLoad('')
     }, [page])
 
-    // useEffect(() => {
-    //     dispatch(getMainCoin(arrCoin))
-    // }, [arrCoin])
-
-
     const handleClickCoin = async (id: string) => {
-        // setLoad('loading')
         setCoinId(id)
         setFlag(true)
-        // setLoad('')
     }
+
     const handleAddCoin = (name: string, sumbol: string, priceUsd: string) => {
         console.log(name)
         dispatch(actionsWaletCrypto.addCoin(name, sumbol, priceUsd))
     }
 
-
-    // if (load === 'loading') {
-    //     return <h5>...loading</h5>
-    // }
     if (flag) {
-        // dispatch(getChangedForCoin(coinId))
-        // dispatch(getCoin(coinId))
+        dispatch(getCoin(coinId))
         return <Redirect
             to={{
                 pathname: "/Crypto_coin",
@@ -56,6 +40,7 @@ const AllCrypto = () => {
             }}
         />
     }
+
     return (
         <div>
             <Container>
@@ -71,18 +56,14 @@ const AllCrypto = () => {
                         >Add to walet
                         </button>
 
-
                         <span>{i.priceUsd} {i.symbol}</span>
                     </div>
                 })
                 }
-
-                <Walet/>
+                <Link to="/Crypto_wallet">Wallet</Link>
             </Container>
-
-
         </div>
     )
-}
+})
 
 export default AllCrypto

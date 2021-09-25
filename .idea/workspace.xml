@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f11c73bf-c5de-43ff-b37b-631266e2703f" name="Default Changelist" comment="cors fix/2">
+    <list default="true" id="f11c73bf-c5de-43ff-b37b-631266e2703f" name="Default Changelist" comment="refresh vallet">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a1-root/API/cryptoAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/API/cryptoAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a1-root/App/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/App/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/a1-root/NaviBar/NaviBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/NaviBar/NaviBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a1-root/Redusers/CoinCryptoReduser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/Redusers/CoinCryptoReduser.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/a1-root/Redusers/WalletCryptoReduser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/Redusers/WalletCryptoReduser.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/a1-root/v1-AllCrypto/AllCrypto.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v1-AllCrypto/AllCrypto.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a1-root/v2-CoinCrypto/CoinCrypto.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v2-CoinCrypto/CoinCrypto.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a1-root/v3-Walet/Walet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v3-Walet/Wallet.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +29,9 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="1yP1sWTf8ri2JSXqQr3mIjywKzZ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -34,18 +42,18 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ToDoList" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="ts.external.directory.path" value="D:\itKamasutra\offer test 1\crypto\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\itKamasutra\offer test 1\crypto\src\a1-root\Vallet" />
       <recent name="D:\itKamasutra\offer test 1\crypto\src\a1-root\App" />
       <recent name="D:\itKamasutra\offer test 1\crypto\src\a1-root\v3-Walet" />
       <recent name="D:\itKamasutra\offer test 1\crypto\src\a1-root" />
       <recent name="D:\itKamasutra\offer test 1\crypto\src\a1-root\Redusers" />
-      <recent name="D:\itKamasutra\offer test 1\crypto\src\a1-root\API" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\kamasutra\Offer_progects\Cripto\01_Crypto\src\a1-root" />
@@ -88,7 +96,7 @@
       <workItem from="1632409387207" duration="11792000" />
       <workItem from="1632427454876" duration="645000" />
       <workItem from="1632428648820" duration="3371000" />
-      <workItem from="1632477142868" duration="7033000" />
+      <workItem from="1632477142868" duration="25670000" />
     </task>
     <task id="LOCAL-00001" summary="add Redusers, API">
       <created>1632173180782</created>
@@ -174,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632499062823</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="refresh vallet">
+      <created>1632505062585</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1632505062585</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,6 +220,7 @@
     <MESSAGE value="add wallet coast" />
     <MESSAGE value="cors fix" />
     <MESSAGE value="cors fix/2" />
-    <option name="LAST_COMMIT_MESSAGE" value="cors fix/2" />
+    <MESSAGE value="refresh vallet" />
+    <option name="LAST_COMMIT_MESSAGE" value="refresh vallet" />
   </component>
 </project>

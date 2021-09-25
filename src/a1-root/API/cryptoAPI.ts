@@ -3,7 +3,6 @@ import axios from "axios";
 
 export const instance = axios.create({
     baseURL: "https://api.coincap.io/v2/assets/",
-    // withCredentials: true,
 });
 
 // api
@@ -14,9 +13,6 @@ export const cryptoAPI = {
     fetchCoin(id: string) {
         return instance.get<{data: CoinType}>(`${id}`, {});
     },
-    // fetchMainCoins(oneCoin: string, secondCoin: string, thirdCoin: string) {
-    //     return instance.get<{data: Array<CoinType>}>(`?ids=${oneCoin},${secondCoin},${thirdCoin}`, {});
-    // },
     fetchMainCoins(arrCoin: Array<string>) {
         let stringFetch = ''
         arrCoin.forEach((i, index)=>{

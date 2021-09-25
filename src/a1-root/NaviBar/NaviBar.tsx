@@ -1,31 +1,30 @@
-import React, {useEffect} from 'react'
-import {Button, Container, Nav, Navbar, NavbarBrand, NavLink} from "react-bootstrap";
-import NavbarToggle from "react-bootstrap/NavbarToggle";
+import React, {useCallback, useEffect} from 'react'
+import {Button, Container, Nav, Navbar, NavbarBrand} from "react-bootstrap";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../App/store";
 import {CoinType} from "../API/cryptoAPI";
 import {getMainCoin} from "../Redusers/MainCryptoReduser";
 import {nanoid} from "nanoid";
-import {getCurrentCost, getStartandCurrentCost} from "../Redusers/WalletCryptoReduser";
+import {getCurrentCost} from "../Redusers/WalletCryptoReduser";
+import { Link } from 'react-router-dom'
 
+const NaviBar = React.memo(() => {
 
-const NaviBar = () => {
-
-    let arrCoin = ['bitcoin', 'ethereum', 'monero']
     const dispatch = useDispatch();
     let mainCoins = useSelector<AppRootStateType, Array<CoinType>>(state => state.allCrypto.mainCoins)
+    let arrCoin = useSelector<AppRootStateType, Array<string>>(state => state.allCrypto.threeMainCoins)
     let startCoast = useSelector<AppRootStateType, number>(state => state.wallet.startCoastUSD)
-    let currentCoast = useSelector<AppRootStateType, number>(state => state.wallet.currentCoastUSD)
+    let getDifference = useSelector<AppRootStateType, number>(state => state.wallet.difference)
+    let differencePercent = useSelector<AppRootStateType, number>(state => state.wallet.differencePercent)
 
     useEffect(() => {
-            // dispatch(getMainCoin(firstCoin, secondCoin, thirdCoin))
             dispatch(getMainCoin(arrCoin))
         }, []
     )
 
-    const hendleRefresh = ()=>{
+    const hendleRefresh =useCallback( ()=>{
         dispatch(getCurrentCost())
-    }
+    }, [])
 
     return (
 
@@ -44,22 +43,24 @@ const NaviBar = () => {
                 })
                 }
                 <div style={{color: 'green'}}>{startCoast}</div>
-                <div style={{color: 'red'}}>{currentCoast}
+                <div style={{color: 'red'}}>
+                    {getDifference}
+                    <span style={{color: 'blue'}}>{differencePercent} %</span>
                 <button onClick={hendleRefresh}>Refresh</button>
                 </div>
 
                 <Nav>
                     <Button variant="primary"
                             className="ml-5"
-                    ><NavLink href="/Crypto_list">Valet</NavLink></Button>
+                    >
+                        <Link to="/Crypto_list">Valet</Link>
+                    </Button>
                 </Nav>
-
-
             </Container>
         </Navbar>
 
 
     )
 }
-
+)
 export default NaviBar;

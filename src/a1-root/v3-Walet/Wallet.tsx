@@ -1,39 +1,35 @@
-import React, {useState} from 'react'
+import React, {useCallback, useState} from 'react'
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../App/store";
-import {actionsWaletCrypto, CoinInWalletType, getStartandCurrentCost} from "../Redusers/WalletCryptoReduser";
+import {
+    actionsWaletCrypto,
+    CoinInWalletType,
+    getCurrentCost,
+    getStartandCurrentCost
+} from "../Redusers/WalletCryptoReduser";
 import {nanoid} from "nanoid";
 import InputForWalet from "./InputForWalet";
 
 
-function Walet() {
+const Wallet = React.memo(() => {
 
     const dispatch = useDispatch();
-    const [changeSpan, setChangeSpan] = useState<boolean>(true)
-    // const [disable, setDisable] = useState<boolean>(true)
 
     let coins = useSelector<AppRootStateType, Array<CoinInWalletType>>(state => state.wallet.coinInWallet)
 
-    // const reMathWallet = ()=>{
-    //     let sumWallet = 0
-    //     coins.forEach(i => {
-    //         sumWallet += +i.priceUsd * +i.sum
-    //     })
-    //     return sumWallet
-    // }
 
-    const handleSubmit = () => {
-
-        // dispatch(actionsWaletCrypto.getStartCoastUSD(reMathWallet()))
-        dispatch(getStartandCurrentCost())
-        setChangeSpan(true)
-    }
+    const handleSubmit = useCallback(() => {
+            dispatch(getStartandCurrentCost())
+            dispatch(getCurrentCost())
+        }
+        , [])
 
 
-    const handleDelete = (id: string) => {
-        dispatch(actionsWaletCrypto.deleteCoin(id))
-    }
-
+    const handleDelete = useCallback(
+            (id: string) => {
+                dispatch(actionsWaletCrypto.deleteCoin(id))
+            }
+        , [])
     return (
         <div
             style={{
@@ -43,20 +39,16 @@ function Walet() {
             }}>
             <h2>Кошелек</h2>
 
-            {coins.map(i => {
+            {coins && coins.map(i => {
                 return <div
                     key={nanoid()}
                 >
-                    {/*<button disabled={disable}>Block Button</button>*/}
                     <InputForWalet
                         name={i.name}
                         id={i.id}
                         sum={i.sum}
                         symbol={i.symbol}
-
-                        // setDisable={setDisable}
                     />
-
 
                     <button onClick={() => handleDelete(i.id)}>Delete</button>
                 </div>
@@ -66,6 +58,6 @@ function Walet() {
 
         </div>
     )
-}
+})
 
-export default Walet;
+export default Wallet;
