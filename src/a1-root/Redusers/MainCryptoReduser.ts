@@ -1,4 +1,3 @@
-import {ThunkAction, ThunkDispatch} from "redux-thunk";
 import {CoinType, cryptoAPI} from "../API/cryptoAPI";
 import {Dispatch} from "react";
 import {InferActionType} from "../App/store";
@@ -7,7 +6,9 @@ import {InferActionType} from "../App/store";
 const initialState = {
     allCoin: [],
     mainCoins: [],
-    threeMainCoins: ['bitcoin', 'ethereum', 'monero']
+    threeMainCoins: ['bitcoin', 'ethereum', 'monero'],
+    error: null,
+    errorMainCoins: null,
 };
 
 export const MainCryptoReduser =
@@ -17,6 +18,11 @@ export const MainCryptoReduser =
                 return {...state, allCoin: action.data};
             case "MAIN/MAIN-COIN":
                 return {...state, mainCoins: action.data};
+            case "MAIN/ERROR":
+                return {...state, error: action.error};
+            case "MAIN/ERROR-MAIN-COINS":
+                return {...state, errorMainCoins: action.error};
+
             default:
                 return state;
         }
@@ -27,7 +33,8 @@ export const MainCryptoReduser =
 export const actionsMainCrypto = {
     getAllCrypto: (data: Array<CoinType>) => ({type: "MAIN/ALL-CRYPTO", data} as const),
     getMainsCoin: (data: Array<CoinType>) => ({type: "MAIN/MAIN-COIN", data} as const),
-    setThreeMainCoins: (data: Array<string>) => ({type: "MAIN/THREE-MAIN-COIN", data} as const),
+    setError: (error: string | null) => ({type: "MAIN/ERROR", error} as const),
+    setErrorMainCoins: (error: string | null) => ({type: "MAIN/ERROR-MAIN-COINS", error} as const),
 };
 
 
@@ -37,28 +44,21 @@ export const getMainCoin = (
 ) => async (dispatch: Dispatch<any>) => {
     try {
         let res = await cryptoAPI.fetchMainCoins(arrCoin);
-        // let res = await cryptoAPI.fetchMainCoins(firstCoin, secondCoin, thirdCoin);
         dispatch(actionsMainCrypto.getMainsCoin(res.data.data))
+        dispatch(actionsMainCrypto.setErrorMainCoins(null))
     } catch (e: any) {
-        console.log(e)
+        dispatch(actionsMainCrypto.setErrorMainCoins(e.message))
     }
 };
-// export const getAllCoin = (porcion: string, arrCoin: Array<string>) => async (dispatch: Dispatch<any>) => {
-//     try {
-//         let res = await cryptoAPI.fetchAll(porcion);
-//         dispatch(actionsMainCrypto.getAllCrypto(res.data.data))
-//         dispatch(getMainCoin(arrCoin))
-//     } catch (e: any) {
-//         console.log(e)
-//     }
-// };
+
 export const getAllCoin = (porcion: number, currentPage: number) => async (dispatch: Dispatch<any>) => {
     try {
         let res = await cryptoAPI.fetchAll(porcion, currentPage);
         dispatch(actionsMainCrypto.getAllCrypto(res.data.data))
-
+        dispatch(actionsMainCrypto.setError(null))
     } catch (e: any) {
-        console.log(e)
+        console.dir(e)
+        dispatch(actionsMainCrypto.setError(e.message))
     }
 };
 
@@ -68,6 +68,8 @@ export type InitialStateType = {
     allCoin: Array<CoinType>
     mainCoins: Array<CoinType>
     threeMainCoins: Array<string>
+    error: string | null
+    errorMainCoins: string | null
 };
 export type CryptoActionType = InferActionType<typeof actionsMainCrypto>
 

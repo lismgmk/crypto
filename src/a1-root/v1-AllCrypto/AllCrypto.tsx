@@ -1,55 +1,55 @@
 import React, {useEffect, useState} from 'react'
-import { Container } from "react-bootstrap";
+import {Container} from "react-bootstrap";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../App/store";
 import {CoinType} from "../API/cryptoAPI";
-import {getAllCoin} from "../Redusers/MainCryptoReduser";
+import {actionsMainCrypto, getAllCoin} from "../Redusers/MainCryptoReduser";
 import {nanoid} from "nanoid";
 import {Link, Redirect} from "react-router-dom";
 import {actionsWaletCrypto} from "../Redusers/WalletCryptoReduser";
-import Checkbox from "../common/Checkbox/Checkbox";
 import {PaginationWrapper} from "../common/Pagination/PaginationWrapper";
 import {actionsForPagination} from "../Redusers/paginationReduser";
+import {ErrorWindow} from "../common/Error/ErrorWindow";
+import {log} from "util";
 
 
-const AllCrypto = React.memo( () => {
+const AllCrypto = React.memo(() => {
     const dispatch = useDispatch();
 
     let AllCoins = useSelector<AppRootStateType, Array<CoinType>>(state => state.allCrypto.allCoin)
     const [coinId, setCoinId] = useState<string>('')
-    // const [nameCoin, setNameCoin] = useState<string>('')
     const [flag, setFlag] = useState<boolean>(false)
-    let page = 5
 
 
-  const pageTotalCount = useSelector<AppRootStateType, number>(state => state.pagination.pageTotalCount)
-  const currentPage = useSelector<AppRootStateType, number>(state => state.pagination.page)
-  const pageCount = useSelector<AppRootStateType, number>(state => state.pagination.pageCount)
+    const pageTotalCount = useSelector<AppRootStateType, number>(state => state.pagination.pageTotalCount)
+    const currentPage = useSelector<AppRootStateType, number>(state => state.pagination.page)
+    const pageCount = useSelector<AppRootStateType, number>(state => state.pagination.pageCount)
+    const error = useSelector<AppRootStateType, string|null>(state => state.allCrypto.error)
+    // const errorMainCoins = useSelector<AppRootStateType, string|null>(state => state.allCrypto.errorMainCoins)
 
 
-
-   const setPageCount = (page: number)=>{
+    const setPageCount = (page: number) => {
         dispatch(actionsForPagination.setPageCount(page))
-       // setNeedlyPage(page*pageCount)
-   }
+    }
 
 
     const [needlyPage, setNeedlyPage] = useState(0)
 
-   const setPage = (page: number)=>{
+    const setPage = (page: number) => {
         dispatch(actionsForPagination.setPage(page))
-       setNeedlyPage((page-1)*pageCount)
-   }
+        setNeedlyPage((page - 1) * pageCount)
+    }
 
-
-
-
+    useEffect(()=>{
+        let int =  setTimeout(()=>{
+            dispatch(actionsMainCrypto.setError(null))
+        }, 3000)
+        return () => clearTimeout(int)
+    }, [error])
 
     useEffect(() => {
         dispatch(getAllCoin(pageCount, needlyPage))
     }, [pageCount, needlyPage])
-
-
 
 
     const handleClickCoin = (id: string) => {
@@ -84,10 +84,7 @@ const AllCrypto = React.memo( () => {
                             {i.name}
                         </div>
 
-                        {/*<Checkbox*/}
 
-                        {/*    onChange={e => handleAddCoin(i.id, i.symbol, i.priceUsd)}*/}
-                        {/*>Add to</Checkbox>*/}
 
                         <button
                             onClick={() => handleAddCoin(i.id, i.symbol, i.priceUsd)}
@@ -98,7 +95,8 @@ const AllCrypto = React.memo( () => {
                     </div>
                 })
                 }
-
+                {error && <ErrorWindow errorMessage={error}/>}
+                {/*{errorMainCoins && <ErrorWindow errorMessage={errorMainCoins}/>}*/}
                 <PaginationWrapper
                     cardPacksTotalCount={pageTotalCount}
                     currentPage={currentPage}
