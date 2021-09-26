@@ -10,13 +10,14 @@ import {actionsWaletCrypto} from "../Redusers/WalletCryptoReduser";
 import {PaginationWrapper} from "../common/Pagination/PaginationWrapper";
 import {actionsForPagination} from "../Redusers/paginationReduser";
 import {ErrorWindow} from "../common/Error/ErrorWindow";
-import {log} from "util";
+import {Preloader} from "../common/Preloader/Preloader";
 
 
 const AllCrypto = React.memo(() => {
     const dispatch = useDispatch();
 
     let AllCoins = useSelector<AppRootStateType, Array<CoinType>>(state => state.allCrypto.allCoin)
+    let loader = useSelector<AppRootStateType,boolean|null>(state => state.allCrypto.loader)
     const [coinId, setCoinId] = useState<string>('')
     const [flag, setFlag] = useState<boolean>(false)
 
@@ -61,6 +62,10 @@ const AllCrypto = React.memo(() => {
         console.log(name)
         // setNameCoin(name)
         dispatch(actionsWaletCrypto.addCoin(name, sumbol, priceUsd))
+    }
+
+    if( loader){
+        return <Preloader/>
     }
 
     if (flag) {

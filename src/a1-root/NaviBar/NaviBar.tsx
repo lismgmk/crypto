@@ -9,6 +9,7 @@ import {actionsWaletCrypto, getCurrentCost} from "../Redusers/WalletCryptoReduse
 import {Link} from 'react-router-dom'
 import {ErrorWindow} from "../common/Error/ErrorWindow";
 import {actionsCoinCrypto} from "../Redusers/CoinCryptoReduser";
+import {Preloader} from "../common/Preloader/Preloader";
 
 const NaviBar = React.memo(() => {
 
@@ -21,6 +22,7 @@ const NaviBar = React.memo(() => {
 
         const error = useSelector<AppRootStateType, string | null>(state => state.wallet.error)
         const errorMainCoins = useSelector<AppRootStateType, string | null>(state => state.allCrypto.errorMainCoins)
+    let loader = useSelector<AppRootStateType,boolean|null>(state => state.allCrypto.loader)
 
 
     useEffect(()=>{
@@ -39,6 +41,12 @@ const NaviBar = React.memo(() => {
         const hendleRefresh = useCallback(() => {
             dispatch(getCurrentCost())
         }, [])
+
+
+
+    if( loader){
+        return <Preloader/>
+    }
 
         return (
 

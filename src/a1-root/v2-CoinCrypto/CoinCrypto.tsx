@@ -8,6 +8,7 @@ import {Chart} from "../v4-Chart/Chart";
 import {useLocation} from "react-router";
 import {ErrorWindow} from "../common/Error/ErrorWindow";
 import {actionsMainCrypto} from "../Redusers/MainCryptoReduser";
+import {Preloader} from "../common/Preloader/Preloader";
 
 
 interface LocationState {
@@ -22,6 +23,7 @@ const CoinCrypto = React.memo( () => {
     let oneCoins = useSelector<AppRootStateType, CoinType | null>(state => state.coinCrypto.coin)
     const error = useSelector<AppRootStateType, string|null>(state => state.coinCrypto.error)
     // const errorMainCoins = useSelector<AppRootStateType, string|null>(state => state.allCrypto.errorMainCoins)
+    let loader = useSelector<AppRootStateType,boolean|null>(state => state.allCrypto.loader)
 
 
     useEffect(()=>{
@@ -37,7 +39,9 @@ const CoinCrypto = React.memo( () => {
 
         }, [idLocation]
     )
-
+    if( loader){
+        return <Preloader/>
+    }
 
     if (idLocation === '') {
         return (

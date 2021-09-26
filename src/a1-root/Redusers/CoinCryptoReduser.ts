@@ -1,6 +1,6 @@
 import {CoinType, cryptoAPI, HistoryCoinType} from "../API/cryptoAPI";
 import {Dispatch} from "react";
-import {InferActionType} from "../App/store";
+import {CommonActionTypeForApp, InferActionType} from "../App/store";
 import {actionsMainCrypto} from "./MainCryptoReduser";
 
 
@@ -12,7 +12,7 @@ const initialState = {
 };
 
 export const CoinCryptoReduser =
-    (state: InitialStateType = initialState, action: CryptoActionType): InitialStateType => {
+    (state: InitialStateType = initialState, action: CommonActionTypeForApp): InitialStateType => {
         switch (action.type) {
             case "COIN/ONE":
                 return {...state, coin: action.data};
@@ -43,15 +43,16 @@ export const actionsCoinCrypto = {
 
 export const getChangedForCoin = (id: string, int?: string) => async (dispatch: Dispatch<any>) => {
     try {
+        dispatch(actionsMainCrypto.setLoader(true))
         let res = await cryptoAPI.fetchHistoryCoins(id, int);
         dispatch(actionsCoinCrypto.getHistoryCoin(res.data.data))
-        // dispatch(actionsCoinCrypto.setError(null))
         let res2 = await cryptoAPI.fetchCoin(id)
         dispatch(actionsCoinCrypto.getOneCoin(res2.data.data))
         dispatch(actionsCoinCrypto.setError(null))
     } catch (e: any) {
-        console.log(e)
         dispatch(actionsCoinCrypto.setError(e.message))
+    } finally {
+        dispatch(actionsMainCrypto.setLoader(false))
     }
 };
 
@@ -63,7 +64,7 @@ export type InitialStateType = {
     error: string | null
     // errorCoin: string | null
 };
-export type CryptoActionType = InferActionType<typeof actionsCoinCrypto>
+export type CoinActionType = InferActionType<typeof actionsCoinCrypto>
 
 
 

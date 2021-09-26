@@ -1,7 +1,8 @@
-import {AppRootStateType, InferActionType} from "../App/store";
+import {AppRootStateType, CommonActionTypeForApp, InferActionType} from "../App/store";
 import {nanoid} from "nanoid";
 import {Dispatch} from "react";
 import {cryptoAPI} from "../API/cryptoAPI";
+import {actionsMainCrypto} from "./MainCryptoReduser";
 
 
 const initialState = {
@@ -13,7 +14,7 @@ const initialState = {
 };
 
 export const WalletCryptoReduser =
-    (state: InitialStateWalletType = initialState, action: CryptoActionType): InitialStateWalletType => {
+    (state: InitialStateWalletType = initialState, action: CommonActionTypeForApp): InitialStateWalletType => {
         switch (action.type) {
             case "WALLET/ADD-COIN":
                 let init = state.coinInWallet
@@ -132,6 +133,9 @@ export const getCurrentCost = () => async (dispatch: Dispatch<any>, getState: ()
                 coinsNameinWallet.push(i.name)
             })
 
+            dispatch(actionsMainCrypto.setLoader(true))
+
+
             let res = await cryptoAPI.fetchMainCoins(coinsNameinWallet)
             dispatch(actionsWaletCrypto.setError(null))
             let newCoins = res.data.data
@@ -152,6 +156,8 @@ export const getCurrentCost = () => async (dispatch: Dispatch<any>, getState: ()
         }
     } catch (e: any) {
         dispatch(actionsWaletCrypto.setError(e.message))
+    } finally {
+        dispatch(actionsMainCrypto.setLoader(false))
     }
 }
 
@@ -172,7 +178,7 @@ export type CoinInWalletType = {
     symbol: string
     priceUsd: string
 }
-export type CryptoActionType = InferActionType<typeof actionsWaletCrypto>
+export type WalletActionType = InferActionType<typeof actionsWaletCrypto>
 
 
 

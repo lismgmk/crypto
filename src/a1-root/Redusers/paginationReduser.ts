@@ -1,4 +1,4 @@
-import {InferActionType} from "../App/store";
+import {CommonActionTypeForApp, InferActionType} from "../App/store";
 
 const initialState = {
     pageCount: 5,
@@ -7,10 +7,8 @@ const initialState = {
 };
 
 export const paginationReducer =
-    (state: initialStateType = initialState, action: PaginationActionType): initialStateType => {
+    (state: initialStateType = initialState, action: CommonActionTypeForApp): initialStateType => {
         switch (action.type) {
-            case "PAGINATION/SET-TOTAL-COUNT":
-                return {...state, pageTotalCount: action.pack}
             case "PAGINATION/SET-PAGE":
                 return {...state, page: action.pack}
             case "PAGINATION/SET-PAGE-COUNT":
@@ -24,10 +22,7 @@ export const paginationReducer =
 // actions
 export const actionsForPagination = {
 
-    setTotalCount: (pack: number) => ({
-        type: "PAGINATION/SET-TOTAL-COUNT",
-        pack
-    } as const),
+
     setPage: (pack: number) => ({
         type: "PAGINATION/SET-PAGE",
         pack

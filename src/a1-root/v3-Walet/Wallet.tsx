@@ -10,6 +10,7 @@ import {
 import {nanoid} from "nanoid";
 import InputForWalet from "./InputForWalet";
 import {Button} from "../common/Button/Button";
+import {Preloader} from "../common/Preloader/Preloader";
 
 
 const Wallet = React.memo(() => {
@@ -17,6 +18,7 @@ const Wallet = React.memo(() => {
     const dispatch = useDispatch();
 
     let coins = useSelector<AppRootStateType, Array<CoinInWalletType>>(state => state.wallet.coinInWallet)
+    let loader = useSelector<AppRootStateType,boolean|null>(state => state.allCrypto.loader)
 
 
     const handleSubmit = useCallback(() => {
@@ -31,6 +33,10 @@ const Wallet = React.memo(() => {
                 dispatch(actionsWaletCrypto.deleteCoin(id))
             }
         , [])
+
+    if( loader){
+        return <Preloader/>
+    }
     return (
         <div
             style={{

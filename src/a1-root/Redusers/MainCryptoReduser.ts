@@ -1,6 +1,6 @@
 import {CoinType, cryptoAPI} from "../API/cryptoAPI";
 import {Dispatch} from "react";
-import {InferActionType} from "../App/store";
+import {CommonActionTypeForApp, InferActionType} from "../App/store";
 
 
 const initialState = {
@@ -9,10 +9,11 @@ const initialState = {
     threeMainCoins: ['bitcoin', 'ethereum', 'monero'],
     error: null,
     errorMainCoins: null,
+    loader: null
 };
 
 export const MainCryptoReduser =
-    (state: InitialStateType = initialState, action: CryptoActionType): InitialStateType => {
+    (state: InitialStateType = initialState, action: CommonActionTypeForApp): InitialStateType => {
         switch (action.type) {
             case "MAIN/ALL-CRYPTO":
                 return {...state, allCoin: action.data};
@@ -22,6 +23,8 @@ export const MainCryptoReduser =
                 return {...state, error: action.error};
             case "MAIN/ERROR-MAIN-COINS":
                 return {...state, errorMainCoins: action.error};
+            case "MAIN/LOADER":
+                return {...state, loader: action.loader};
 
             default:
                 return state;
@@ -35,7 +38,8 @@ export const actionsMainCrypto = {
     getMainsCoin: (data: Array<CoinType>) => ({type: "MAIN/MAIN-COIN", data} as const),
     setError: (error: string | null) => ({type: "MAIN/ERROR", error} as const),
     setErrorMainCoins: (error: string | null) => ({type: "MAIN/ERROR-MAIN-COINS", error} as const),
-};
+    setLoader: (loader: boolean|null) => ({type: "MAIN/LOADER", loader} as const)
+}
 
 
 // thunks
@@ -43,22 +47,28 @@ export const getMainCoin = (
     arrCoin: Array<string>
 ) => async (dispatch: Dispatch<any>) => {
     try {
+        dispatch(actionsMainCrypto.setLoader(true))
         let res = await cryptoAPI.fetchMainCoins(arrCoin);
         dispatch(actionsMainCrypto.getMainsCoin(res.data.data))
         dispatch(actionsMainCrypto.setErrorMainCoins(null))
     } catch (e: any) {
         dispatch(actionsMainCrypto.setErrorMainCoins(e.message))
+    } finally {
+        dispatch(actionsMainCrypto.setLoader(false))
     }
 };
 
 export const getAllCoin = (porcion: number, currentPage: number) => async (dispatch: Dispatch<any>) => {
     try {
+        dispatch(actionsMainCrypto.setLoader(true))
         let res = await cryptoAPI.fetchAll(porcion, currentPage);
         dispatch(actionsMainCrypto.getAllCrypto(res.data.data))
         dispatch(actionsMainCrypto.setError(null))
     } catch (e: any) {
         console.dir(e)
         dispatch(actionsMainCrypto.setError(e.message))
+    } finally {
+        dispatch(actionsMainCrypto.setLoader(false))
     }
 };
 
@@ -70,7 +80,8 @@ export type InitialStateType = {
     threeMainCoins: Array<string>
     error: string | null
     errorMainCoins: string | null
-};
+    loader: boolean|null
+}
 export type CryptoActionType = InferActionType<typeof actionsMainCrypto>
 
 
