@@ -12,7 +12,6 @@ import InputForWalet from "./InputForWalet";
 import {Button} from "../common/Button/Button";
 import {Preloader} from "../common/Preloader/Preloader";
 import {H2} from "../common/Headings/H2";
-import {AuthModal} from "../common/StylizedСomponents/AuthModal/AuthModal";
 
 
 const Wallet = React.memo(() => {
@@ -40,7 +39,6 @@ const Wallet = React.memo(() => {
         return <Preloader/>
     }
     return (
-        <AuthModal title={'Wallet'} subtitle={'Coins'}>
             <div
                 style={{
                     width: "200px",
@@ -73,7 +71,6 @@ const Wallet = React.memo(() => {
                 <button onClick={handleSubmit}>Submit</button>
 
             </div>
-        </AuthModal>
 
     )
 })

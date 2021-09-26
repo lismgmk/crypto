@@ -8,10 +8,9 @@ import {useLocation} from "react-router";
 import {ErrorWindow} from "../common/Error/ErrorWindow";
 import {Preloader} from "../common/Preloader/Preloader";
 import {H2} from "../common/Headings/H2";
-import {AuthModal} from "../common/StylizedСomponents/AuthModal/AuthModal";
-import {Wrapper} from "../common/StylizedСomponents/Wrapper/Wrapper";
 import { Link } from 'react-router-dom';
-
+import s from "../v1-AllCrypto/AllCrypto.module.scss";
+import {TableCoinList} from "./TableCoinList/TableCoinList";
 
 interface LocationState {
     id: string
@@ -24,7 +23,6 @@ const CoinCrypto = React.memo( () => {
 
     let oneCoins = useSelector<AppRootStateType, CoinType | null>(state => state.coinCrypto.coin)
     const error = useSelector<AppRootStateType, string|null>(state => state.coinCrypto.error)
-    // const errorMainCoins = useSelector<AppRootStateType, string|null>(state => state.allCrypto.errorMainCoins)
     let loader = useSelector<AppRootStateType,boolean|null>(state => state.allCrypto.loader)
 
 
@@ -54,25 +52,17 @@ const CoinCrypto = React.memo( () => {
         )
     }
     return (
-        <Wrapper>
-
+        <div className={s.container}>
+            <div className={s.wrapper}>
                 <H2>{idLocation}</H2>
-                {oneCoins && <AuthModal subtitle={oneCoins.name}>
-                   <>
-                       <div>{oneCoins.name}</div>
-                       <div>{oneCoins.name}</div>
-                       <div>{oneCoins.priceUsd}</div>
-
-                   </>
+                <TableCoinList/>
+                <div className={s.chart}>
                     <Chart/>
-                </AuthModal>
-
-                }
+                </div>
 
                 {error && <ErrorWindow errorMessage={error}/>}
-                {/*{errorMainCoins && <ErrorWindow errorMessage={errorMainCoins}/>}*/}
-
-        </Wrapper>
+            </div>
+        </div>
 
     )
 })

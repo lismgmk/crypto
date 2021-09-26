@@ -6,7 +6,7 @@ type H1PropsType = {
 }
 
 
-export const H1: React.FC<H1PropsType> = ({title}) => {
+export const H1: React.FC<H1PropsType> = ({children}) => {
 
-    return <h1 className={s.title}>{title || "Magic card"}</h1>
+    return <h1 className={s.title}>{children}</h1>
 }

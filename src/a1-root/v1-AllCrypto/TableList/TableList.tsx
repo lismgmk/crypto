@@ -1,7 +1,5 @@
 import React, {useState} from "react";
 import s from "./TableList.module.scss";
-import global from "../../../../style/global.module.scss";
-
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../../App/store";
@@ -31,8 +29,6 @@ export const TableList: React.FC<TableListPropsType> = (props: TableListPropsTyp
     }
 
     const handleAddCoin = (name: string, sumbol: string, priceUsd: string) => {
-        console.log(name)
-        // setNameCoin(name)
         dispatch(actionsWaletCrypto.addCoin(name, sumbol, priceUsd))
     }
 

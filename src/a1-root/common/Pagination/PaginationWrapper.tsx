@@ -43,7 +43,7 @@ export const PaginationWrapper: React.FC<PackPropsType> = ({
                     <option   value={5}>5</option>
                     <option   value={10}>10</option>
                 </select>
-                <span className={style.paginationSpan}>Cards per Page</span>
+                <span className={style.paginationSpan}>Coins per Page</span>
             </div>
 
 

@@ -7,8 +7,9 @@ import {PaginationWrapper} from "../common/Pagination/PaginationWrapper";
 import {actionsForPagination} from "../../Redusers/paginationReduser";
 import {ErrorWindow} from "../common/Error/ErrorWindow";
 import {Preloader} from "../common/Preloader/Preloader";
-import {TableList} from "./TablePackList/TableList";
+import {TableList} from "./TableList/TableList";
 import s from "./AllCrypto.module.scss";
+import {H2} from "../common/Headings/H2";
 
 const AllCrypto = React.memo(() => {
     const dispatch = useDispatch();
@@ -61,10 +62,10 @@ const AllCrypto = React.memo(() => {
     }
 
     return (
-
-
         <div className={s.container}>
+            <H2>All coins</H2>
             <div className={s.wrapper}>
+
                 <TableList setCoinId={setCoinId} setFlag={setFlag}/>
 
                 {error && <ErrorWindow errorMessage={error}/>}
@@ -77,8 +78,6 @@ const AllCrypto = React.memo(() => {
                 />
             </div>
         </div>
-
-
     )
 })
 
