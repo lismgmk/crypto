@@ -1,10 +1,10 @@
 import React from 'react';
 import {Switch, Route} from "react-router-dom";
-import AllCrypto from "../v1-AllCrypto/AllCrypto";
-import CoinCrypto from "../v2-CoinCrypto/CoinCrypto";
+import AllCrypto from "../a1-root/v1-AllCrypto/AllCrypto";
+import CoinCrypto from "../a1-root/v2-CoinCrypto/CoinCrypto";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NaviBar from "../NaviBar/NaviBar";
-import Wallet from "../v3-Walet/Wallet";
+import NaviBar from "../a1-root/Header/Header";
+import Wallet from "../a1-root/v3-Walet/Wallet";
 
 
 function App() {

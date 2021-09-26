@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .wrapper {
+    background: #FEFEFF;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 90vw;
+    height: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+}

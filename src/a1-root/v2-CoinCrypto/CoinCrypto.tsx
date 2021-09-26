@@ -1,14 +1,16 @@
 import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../App/store";
-import {CoinType} from "../API/cryptoAPI";
-import {Container, NavLink} from "react-bootstrap";
-import {actionsCoinCrypto, getChangedForCoin} from "../Redusers/CoinCryptoReduser";
+import {AppRootStateType} from "../../App/store";
+import {CoinType} from "../../API/cryptoAPI";
+import {actionsCoinCrypto, getChangedForCoin} from "../../Redusers/CoinCryptoReduser";
 import {Chart} from "../v4-Chart/Chart";
 import {useLocation} from "react-router";
 import {ErrorWindow} from "../common/Error/ErrorWindow";
-import {actionsMainCrypto} from "../Redusers/MainCryptoReduser";
 import {Preloader} from "../common/Preloader/Preloader";
+import {H2} from "../common/Headings/H2";
+import {AuthModal} from "../common/StylizedСomponents/AuthModal/AuthModal";
+import {Wrapper} from "../common/StylizedСomponents/Wrapper/Wrapper";
+import { Link } from 'react-router-dom';
 
 
 interface LocationState {
@@ -47,24 +49,31 @@ const CoinCrypto = React.memo( () => {
         return (
             <div>
                 <h5>There is not some coin</h5>
-                <NavLink href={"/Crypto_list"}>Chose coin</NavLink>
+                <Link to={"/Crypto_list"}>Chose coin</Link>
             </div>
         )
     }
     return (
-        <div>
-            <div>{idLocation}</div>
-            {oneCoins && <div>
-                <div>{oneCoins.name}</div>
-                <div>{oneCoins.explorer}</div>
-                <div>{oneCoins.priceUsd}</div>
-            </div>
+        <Wrapper>
 
-            }
-            <Chart/>
-            {error && <ErrorWindow errorMessage={error}/>}
-            {/*{errorMainCoins && <ErrorWindow errorMessage={errorMainCoins}/>}*/}
-        </div>
+                <H2>{idLocation}</H2>
+                {oneCoins && <AuthModal subtitle={oneCoins.name}>
+                   <>
+                       <div>{oneCoins.name}</div>
+                       <div>{oneCoins.name}</div>
+                       <div>{oneCoins.priceUsd}</div>
+
+                   </>
+                    <Chart/>
+                </AuthModal>
+
+                }
+
+                {error && <ErrorWindow errorMessage={error}/>}
+                {/*{errorMainCoins && <ErrorWindow errorMessage={errorMainCoins}/>}*/}
+
+        </Wrapper>
+
     )
 })
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
 import {useSelector} from "react-redux";
-import {AppRootStateType} from "../App/store";
-import {HistoryCoinType} from "../API/cryptoAPI";
+import {AppRootStateType} from "../../App/store";
+import {HistoryCoinType} from "../../API/cryptoAPI";
 
 
 class Label extends React.Component<{ offset: number, position: string, value: string }> {

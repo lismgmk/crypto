@@ -1,23 +1,19 @@
 import React, {useEffect, useState} from 'react'
-import {Container} from "react-bootstrap";
 import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../App/store";
-import {CoinType} from "../API/cryptoAPI";
-import {actionsMainCrypto, getAllCoin} from "../Redusers/MainCryptoReduser";
-import {nanoid} from "nanoid";
-import {Link, Redirect} from "react-router-dom";
-import {actionsWaletCrypto} from "../Redusers/WalletCryptoReduser";
+import {AppRootStateType} from "../../App/store";
+import {actionsMainCrypto, getAllCoin} from "../../Redusers/MainCryptoReduser";
+import {Redirect} from "react-router-dom";
 import {PaginationWrapper} from "../common/Pagination/PaginationWrapper";
-import {actionsForPagination} from "../Redusers/paginationReduser";
+import {actionsForPagination} from "../../Redusers/paginationReduser";
 import {ErrorWindow} from "../common/Error/ErrorWindow";
 import {Preloader} from "../common/Preloader/Preloader";
-
+import {TableList} from "./TablePackList/TableList";
+import s from "./AllCrypto.module.scss";
 
 const AllCrypto = React.memo(() => {
     const dispatch = useDispatch();
 
-    let AllCoins = useSelector<AppRootStateType, Array<CoinType>>(state => state.allCrypto.allCoin)
-    let loader = useSelector<AppRootStateType,boolean|null>(state => state.allCrypto.loader)
+    let loader = useSelector<AppRootStateType, boolean | null>(state => state.allCrypto.loader)
     const [coinId, setCoinId] = useState<string>('')
     const [flag, setFlag] = useState<boolean>(false)
 
@@ -25,8 +21,7 @@ const AllCrypto = React.memo(() => {
     const pageTotalCount = useSelector<AppRootStateType, number>(state => state.pagination.pageTotalCount)
     const currentPage = useSelector<AppRootStateType, number>(state => state.pagination.page)
     const pageCount = useSelector<AppRootStateType, number>(state => state.pagination.pageCount)
-    const error = useSelector<AppRootStateType, string|null>(state => state.allCrypto.error)
-    // const errorMainCoins = useSelector<AppRootStateType, string|null>(state => state.allCrypto.errorMainCoins)
+    const error = useSelector<AppRootStateType, string | null>(state => state.allCrypto.error)
 
 
     const setPageCount = (page: number) => {
@@ -35,14 +30,14 @@ const AllCrypto = React.memo(() => {
 
 
     const [needlyPage, setNeedlyPage] = useState(0)
-
+    const [addModal, setAddModal] = useState(false);
     const setPage = (page: number) => {
         dispatch(actionsForPagination.setPage(page))
         setNeedlyPage((page - 1) * pageCount)
     }
 
-    useEffect(()=>{
-        let int =  setTimeout(()=>{
+    useEffect(() => {
+        let int = setTimeout(() => {
             dispatch(actionsMainCrypto.setError(null))
         }, 3000)
         return () => clearTimeout(int)
@@ -52,19 +47,7 @@ const AllCrypto = React.memo(() => {
         dispatch(getAllCoin(pageCount, needlyPage))
     }, [pageCount, needlyPage])
 
-
-    const handleClickCoin = (id: string) => {
-        setCoinId(id)
-        setFlag(true)
-    }
-
-    const handleAddCoin = (name: string, sumbol: string, priceUsd: string) => {
-        console.log(name)
-        // setNameCoin(name)
-        dispatch(actionsWaletCrypto.addCoin(name, sumbol, priceUsd))
-    }
-
-    if( loader){
+    if (loader) {
         return <Preloader/>
     }
 
@@ -78,30 +61,13 @@ const AllCrypto = React.memo(() => {
     }
 
     return (
-        <div>
-            <Container>
-                {AllCoins.map(i => {
-                    return <div key={nanoid()}>
-                        <div
-                            onClick={() => handleClickCoin(i.id)}
-                        >
-
-                            {i.name}
-                        </div>
 
 
+        <div className={s.container}>
+            <div className={s.wrapper}>
+                <TableList setCoinId={setCoinId} setFlag={setFlag}/>
 
-                        <button
-                            onClick={() => handleAddCoin(i.id, i.symbol, i.priceUsd)}
-                        >Add to walet
-                        </button>
-
-                        <span>{i.priceUsd} {i.symbol}</span>
-                    </div>
-                })
-                }
                 {error && <ErrorWindow errorMessage={error}/>}
-                {/*{errorMainCoins && <ErrorWindow errorMessage={errorMainCoins}/>}*/}
                 <PaginationWrapper
                     cardPacksTotalCount={pageTotalCount}
                     currentPage={currentPage}
@@ -109,10 +75,10 @@ const AllCrypto = React.memo(() => {
                     setPackPageCount={setPageCount}
                     setPackPage={setPage}
                 />
-
-                <Link to="/Crypto_wallet">Wallet</Link>
-            </Container>
+            </div>
         </div>
+
+
     )
 })
 

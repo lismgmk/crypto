@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {actionsWaletCrypto, CoinInWalletType} from "../Redusers/WalletCryptoReduser";
+import {actionsWaletCrypto, CoinInWalletType} from "../../Redusers/WalletCryptoReduser";
 import {useDispatch, useSelector} from "react-redux";
 import {InputField} from "../common/InputField/InputField";
 
