@@ -2,7 +2,6 @@ import React from 'react';
 import {Switch, Route} from "react-router-dom";
 import AllCrypto from "../a1-root/v1-AllCrypto/AllCrypto";
 import CoinCrypto from "../a1-root/v2-CoinCrypto/CoinCrypto";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import NaviBar from "../a1-root/Header/Header";
 import Wallet from "../a1-root/v3-Wallet/Wallet";
 

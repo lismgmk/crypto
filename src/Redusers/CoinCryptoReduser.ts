@@ -5,24 +5,23 @@ import {actionsMainCrypto} from "./MainCryptoReduser";
 
 
 const initialState = {
+    oneMainCoin: '',
     coin: null,
     history: null,
     error: null,
-    // errorCoin: null,
 };
 
 export const CoinCryptoReduser =
     (state: InitialStateType = initialState, action: CommonActionTypeForApp): InitialStateType => {
         switch (action.type) {
+            case "COIN/ONE-MAIN-COIN":
+                return {...state, oneMainCoin: action.data};
             case "COIN/ONE":
                 return {...state, coin: action.data};
             case "COIN/HISTORY-COIN":
                 return {...state, history: action.history};
             case "COIN/ERROR":
                 return {...state, error: action.error};
-            // case "COIN/ERROR-COIN":
-            //     return {...state, errorCoin: action.error};
-
             default:
                 return state;
         }
@@ -31,6 +30,7 @@ export const CoinCryptoReduser =
 
 // actions
 export const actionsCoinCrypto = {
+    getOneMainCoin: (data: string) => ({type: "COIN/ONE-MAIN-COIN", data} as const),
     getOneCoin: (data: CoinType) => ({type: "COIN/ONE", data} as const),
     getHistoryCoin: (history: Array<HistoryCoinType>) => ({type: "COIN/HISTORY-COIN", history} as const),
     setError: (error: string | null) => ({type: "COIN/ERROR", error} as const),
@@ -62,7 +62,7 @@ export type InitialStateType = {
     coin: CoinType | null,
     history: Array<HistoryCoinType> | null,
     error: string | null
-    // errorCoin: string | null
+    oneMainCoin: string
 };
 export type CoinActionType = InferActionType<typeof actionsCoinCrypto>
 

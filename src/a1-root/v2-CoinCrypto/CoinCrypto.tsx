@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../App/store";
-import {CoinType} from "../../API/cryptoAPI";
 import {actionsCoinCrypto, getChangedForCoin} from "../../Redusers/CoinCryptoReduser";
 import {Chart} from "../v4-Chart/Chart";
 import {useLocation} from "react-router";
@@ -18,10 +17,10 @@ interface LocationState {
 
 const CoinCrypto = React.memo( () => {
     const dispatch = useDispatch()
-    const location = useLocation<LocationState>()
-    const idLocation: string = location.state.id
+    // const location = useLocation<LocationState>()
+    // const idLocation: string | undefined= location.state.id
+    const idLocation = useSelector<AppRootStateType, string>(state => state.coinCrypto.oneMainCoin)
 
-    let oneCoins = useSelector<AppRootStateType, CoinType | null>(state => state.coinCrypto.coin)
     const error = useSelector<AppRootStateType, string|null>(state => state.coinCrypto.error)
     let loader = useSelector<AppRootStateType,boolean|null>(state => state.allCrypto.loader)
 
@@ -54,13 +53,12 @@ const CoinCrypto = React.memo( () => {
     return (
         <div className={s.container}>
             <div className={s.wrapper}>
+                {error && <ErrorWindow errorMessage={error}/>}
                 <H2>{idLocation}</H2>
                 <TableCoinList/>
                 <div className={s.chart}>
                     <Chart/>
                 </div>
-
-                {error && <ErrorWindow errorMessage={error}/>}
             </div>
         </div>
 

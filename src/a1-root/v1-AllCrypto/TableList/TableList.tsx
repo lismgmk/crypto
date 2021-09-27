@@ -8,15 +8,16 @@ import {nanoid} from "nanoid";
 import {Button} from "../../common/Button/Button";
 import {Modal} from "../../common/Modal/Modal";
 import {actionsWaletCrypto} from "../../../Redusers/WalletCryptoReduser";
+import {actionsCoinCrypto} from "../../../Redusers/CoinCryptoReduser";
 
 type TableListPropsType = {
-    setCoinId: (val: string) => void
-    setFlag: (val: boolean) => void
+    // setCoinId: (val: string) => void
+    // setFlag: (val: boolean) => void
 }
 
 
 export const TableList: React.FC<TableListPropsType> = (props: TableListPropsType) => {
-    const {setCoinId, setFlag} = props
+    // const {setCoinId, setFlag} = props
 
     const dispatch = useDispatch();
 
@@ -24,8 +25,9 @@ export const TableList: React.FC<TableListPropsType> = (props: TableListPropsTyp
     const [addModal, setAddModal] = useState(false);
 
     const handleClickCoin = (id: string) => {
-        setCoinId(id)
-        setFlag(true)
+        // setCoinId(id)
+        dispatch(actionsCoinCrypto.getOneMainCoin(id))
+        // setFlag(true)
     }
 
     const handleAddCoin = (name: string, sumbol: string, priceUsd: string) => {

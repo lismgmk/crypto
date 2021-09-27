@@ -2,13 +2,13 @@ import React, {useState} from 'react'
 import {actionsWaletCrypto, CoinInWalletType} from "../../Redusers/WalletCryptoReduser";
 import {useDispatch, useSelector} from "react-redux";
 import {InputField} from "../common/InputField/InputField";
+import s from "./TableWalletList/TableWalletList.module.scss";
 
 type InputForWalletType = {
     name: string
     id: string
     sum: number
     symbol: string
-    // setDisable: (val: boolean)=>void
 }
 
 
@@ -54,18 +54,18 @@ const InputForWalet = (props: InputForWalletType) => {
     }
 
     return (
-        <div>
-            Валюта {name}
+        <>
+
             {changeSpan ?
-                <div>
+                <th className={s.col2}>
                        <span style={{
                            width: "20px",
                            height: "10px",
                            borderBottom: '1px solid red'
                        }}>{sum}</span> {symbol}
                     <button onClick={handleEdit}>Edit</button>
-                </div> :
-                <div>
+                </th> :
+                <>
 
 
                     <InputField
@@ -76,24 +76,19 @@ const InputForWalet = (props: InputForWalletType) => {
                         onChange={e =>  setCoinValue(e.currentTarget.value)}
                         error={errors !== '' ? errors : null}
                     />
-
-
-                    {/*<input*/}
-                    {/*    value={coinValue}*/}
-                    {/*    placeholder='enter value'*/}
-                    {/*    onChange={(e) => {*/}
-                    {/*        setCoinValue(+e.currentTarget.value)*/}
-                    {/*    }}*/}
-                    {/*/>*/}
+                    <th className={s.col3}>
                     {symbol}
+                    </th>
+                    <th className={s.col4}>
                     <button
                         disabled={disButton}
                         onClick={() => handleSubmit(coinValue, id)
                         }>Save</button>
-                </div>
+                    </th>
+                </>
             }
-        </div>
+        </>
     )
 }
 
-export default InputForWalet;
+export default InputForWalet

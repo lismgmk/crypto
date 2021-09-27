@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react'
+import React, {useCallback} from 'react'
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../App/store";
 import {
@@ -12,7 +12,9 @@ import InputForWalet from "./InputForWalet";
 import {Button} from "../common/Button/Button";
 import {Preloader} from "../common/Preloader/Preloader";
 import {H2} from "../common/Headings/H2";
-
+import s from "../v1-AllCrypto/AllCrypto.module.scss";
+import {TableList} from "../v1-AllCrypto/TableList/TableList";
+import {TableWalletList} from "./TableWalletList/TableWalletList";
 
 const Wallet = React.memo(() => {
 
@@ -35,18 +37,14 @@ const Wallet = React.memo(() => {
             }
         , [])
 
-    if( loader){
+    if(loader){
         return <Preloader/>
     }
     return (
-            <div
-                style={{
-                    width: "200px",
-                    height: "400px",
-                    border: '1px solid red'
-                }}>
-                <H2>Wallet</H2>
-
+        <div className={s.container}>
+            <H2>All coins</H2>
+            <div className={s.wrapper}>
+            <TableWalletList/>
                 {coins && coins.map(i => {
                     return <div
                         key={nanoid()}
@@ -68,8 +66,13 @@ const Wallet = React.memo(() => {
                     </div>
                 })
                 }
-                <button onClick={handleSubmit}>Submit</button>
+                <Button
+                    color={'dark-blue'}
+                    onClick={handleSubmit}
+                    rounded
+                >Submit</Button>
 
+            </div>
             </div>
 
     )

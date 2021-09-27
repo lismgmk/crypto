@@ -16,13 +16,14 @@ const AllCrypto = React.memo(() => {
 
     let loader = useSelector<AppRootStateType, boolean | null>(state => state.allCrypto.loader)
     const [coinId, setCoinId] = useState<string>('')
-    const [flag, setFlag] = useState<boolean>(false)
+    // const [flag, setFlag] = useState<boolean>(false)
 
 
     const pageTotalCount = useSelector<AppRootStateType, number>(state => state.pagination.pageTotalCount)
     const currentPage = useSelector<AppRootStateType, number>(state => state.pagination.page)
     const pageCount = useSelector<AppRootStateType, number>(state => state.pagination.pageCount)
     const error = useSelector<AppRootStateType, string | null>(state => state.allCrypto.error)
+    const oneMainCoin = useSelector<AppRootStateType, string>(state => state.coinCrypto.oneMainCoin)
 
 
     const setPageCount = (page: number) => {
@@ -31,7 +32,6 @@ const AllCrypto = React.memo(() => {
 
 
     const [needlyPage, setNeedlyPage] = useState(0)
-    const [addModal, setAddModal] = useState(false);
     const setPage = (page: number) => {
         dispatch(actionsForPagination.setPage(page))
         setNeedlyPage((page - 1) * pageCount)
@@ -52,12 +52,9 @@ const AllCrypto = React.memo(() => {
         return <Preloader/>
     }
 
-    if (flag) {
-        return <Redirect
-            to={{
-                pathname: "/Crypto_coin",
-                state: {id: coinId}
-            }}
+    if (oneMainCoin !== '') {
+        return <Redirect to={"/Crypto_coin"}
+
         />
     }
 
@@ -66,7 +63,7 @@ const AllCrypto = React.memo(() => {
             <H2>All coins</H2>
             <div className={s.wrapper}>
 
-                <TableList setCoinId={setCoinId} setFlag={setFlag}/>
+                <TableList/>
 
                 {error && <ErrorWindow errorMessage={error}/>}
                 <PaginationWrapper

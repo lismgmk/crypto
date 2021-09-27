@@ -1,24 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f11c73bf-c5de-43ff-b37b-631266e2703f" name="Default Changelist" comment="page AllCrypto">
-      <change afterPath="$PROJECT_DIR$/src/a1-root/v2-CoinCrypto/TableCoinList/TableCoinList.tsx" afterDir="false" />
+    <list default="true" id="f11c73bf-c5de-43ff-b37b-631266e2703f" name="Default Changelist" comment="page CoinCrypto">
+      <change afterPath="$PROJECT_DIR$/src/a1-root/v3-Wallet/TableWalletList/TableWalletList.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/a1-root/v3-Wallet/TableWalletList/TableWalletList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a1-root/Header/Header.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/Header/Header.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a1-root/common/Headings/H1.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/common/Headings/H1.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a1-root/common/Pagination/PaginationWrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/common/Pagination/PaginationWrapper.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a1-root/common/StylizedСomponents/AuthModal/AuthModal.module.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a1-root/common/StylizedСomponents/AuthModal/AuthModal.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a1-root/common/StylizedСomponents/Wrapper/Wrapper.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a1-root/v1-AllCrypto/AllCrypto.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v1-AllCrypto/AllCrypto.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Redusers/CoinCryptoReduser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redusers/CoinCryptoReduser.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a1-root/common/InputField/InputField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/common/InputField/InputField.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/a1-root/v1-AllCrypto/AllCrypto.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v1-AllCrypto/AllCrypto.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a1-root/v1-AllCrypto/TablePackList/TableList.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v1-AllCrypto/TableList/TableList.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a1-root/v1-AllCrypto/TablePackList/TableList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v1-AllCrypto/TableList/TableList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a1-root/v1-AllCrypto/TableList/TableList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v1-AllCrypto/TableList/TableList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/a1-root/v2-CoinCrypto/CoinCrypto.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v2-CoinCrypto/CoinCrypto.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a1-root/v3-Walet/InputForWalet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v3-Wallet/InputForWalet.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a1-root/v3-Walet/Wallet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v3-Wallet/Wallet.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/global.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/global.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a1-root/v3-Wallet/InputForWalet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v3-Wallet/InputForWalet.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a1-root/v3-Wallet/Wallet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v3-Wallet/Wallet.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,18 +47,18 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/a1-root/v2-CoinCrypto" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/a1-root/v3-Wallet" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="ts.external.directory.path" value="D:\itKamasutra\offer test 1\crypto\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\itKamasutra\offer test 1\crypto\src\a1-root\v3-Wallet" />
       <recent name="D:\itKamasutra\offer test 1\crypto\src\a1-root\v2-CoinCrypto" />
       <recent name="D:\itKamasutra\offer test 1\crypto\src\a1-root\v1-AllCrypto" />
       <recent name="D:\itKamasutra\offer test 1\crypto\src\assets\icon" />
       <recent name="D:\itKamasutra\offer test 1\crypto\src\assets\image" />
-      <recent name="D:\itKamasutra\offer test 1\crypto\src\a1-root\NaviBar" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\itKamasutra\offer test 1\crypto\src\assets" />
@@ -70,7 +67,17 @@
       <recent name="D:\kamasutra\Offer_progects\Cripto\01_Crypto\src\a1-root" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.deploy">
+    <configuration name="deploy" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="deploy" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -83,6 +90,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.deploy" />
         <item itemvalue="npm.start" />
       </list>
     </recent_temporary>
@@ -109,7 +117,10 @@
       <workItem from="1632428648820" duration="3371000" />
       <workItem from="1632477142868" duration="33360000" />
       <workItem from="1632583395323" duration="22395000" />
-      <workItem from="1632649217184" duration="31786000" />
+      <workItem from="1632649217184" duration="32711000" />
+      <workItem from="1632700357141" duration="68000" />
+      <workItem from="1632700536510" duration="931000" />
+      <workItem from="1632742715858" duration="6717000" />
     </task>
     <task id="LOCAL-00001" summary="add Redusers, API">
       <created>1632173180782</created>
@@ -237,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632693986713</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="page CoinCrypto">
+      <created>1632699303547</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1632699303547</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,6 +293,7 @@
     <MESSAGE value="add error windiws" />
     <MESSAGE value="add loader" />
     <MESSAGE value="page AllCrypto" />
-    <option name="LAST_COMMIT_MESSAGE" value="page AllCrypto" />
+    <MESSAGE value="page CoinCrypto" />
+    <option name="LAST_COMMIT_MESSAGE" value="page CoinCrypto" />
   </component>
 </project>

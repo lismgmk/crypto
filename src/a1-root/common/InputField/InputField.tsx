@@ -41,7 +41,7 @@ export const InputField: React.FC<InputFieldPropsType> =  (
     const finalInputClassName = `${s.input} ${error && s.input__error}`
 
     return (
-        <div className={s.inputField}>
+        <th className={`${s.col2} ${s.inputField}`}>
             <label aria-required={true}>{label}</label>
             <input
                 onChange={onChangeCallback}
@@ -50,6 +50,6 @@ export const InputField: React.FC<InputFieldPropsType> =  (
                 {...restProps}
             />
             <div className={s.inputField__error}>{error && <span className={finalSpanClassName}>{error}</span>}</div>
-        </div>
+        </th>
     )
 }
