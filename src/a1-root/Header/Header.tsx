@@ -5,13 +5,14 @@ import {CoinType} from "../../API/cryptoAPI";
 import {actionsMainCrypto, getMainCoin} from "../../Redusers/MainCryptoReduser";
 import {nanoid} from "nanoid";
 import {actionsWaletCrypto, getCurrentCost} from "../../Redusers/WalletCryptoReduser";
-import {Link, NavLink} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import {ErrorWindow} from "../common/Error/ErrorWindow";
 import {Preloader} from "../common/Preloader/Preloader";
 import {Button} from "../common/Button/Button";
 import style from "./Header.module.scss";
 import {UserSvg} from "../../assets/icon/UserSVG";
 import {WalletSvg} from "../../assets/icon/WalletSVG";
+import {actionsCoinCrypto} from "../../Redusers/CoinCryptoReduser";
 
 const Header = React.memo(() => {
 
@@ -21,7 +22,6 @@ const Header = React.memo(() => {
         let startCoast = useSelector<AppRootStateType, number>(state => state.wallet.startCoastUSD)
         let getDifference = useSelector<AppRootStateType, number>(state => state.wallet.difference)
         let differencePercent = useSelector<AppRootStateType, number>(state => state.wallet.differencePercent)
-
         const error = useSelector<AppRootStateType, string | null>(state => state.wallet.error)
         const errorMainCoins = useSelector<AppRootStateType, string | null>(state => state.allCrypto.errorMainCoins)
         let loader = useSelector<AppRootStateType, boolean | null>(state => state.allCrypto.loader)
@@ -57,13 +57,22 @@ const Header = React.memo(() => {
                     <nav className={style.header__nav}>
                         <ul className={style.header__list}>
                             <li>
-                                <NavLink to={"/Crypto_list"} activeClassName={style.activeLink}>
+                                <NavLink
+                                    onClick={() => {
+                                        dispatch(actionsCoinCrypto.getOneMainCoin(''))
+                                    }}
+                                    to={"/Crypto_list"} activeClassName={style.activeLink}>
                                     <div style={{color: 'red'}}><UserSvg/></div>
                                     Main</NavLink>
                             </li>
                             <li>
-                                <NavLink to={"/Crypto_wallet"}
-                                         activeClassName={style.activeLink}><WalletSvg/>Wallet</NavLink>
+                                <NavLink
+                                    onClick={() => {
+                                        dispatch(actionsCoinCrypto.getOneMainCoin(''))
+                                    }}
+                                    to={"/Crypto_wallet"}
+                                    activeClassName={style.activeLink}><WalletSvg/>
+                                    Wallet</NavLink>
                             </li>
                         </ul>
                     </nav>
@@ -93,14 +102,10 @@ const Header = React.memo(() => {
                             onClick={hendleRefresh}
                     >Refresh
                     </Button>
-
                 </div>
-
                 {error && <ErrorWindow errorMessage={error}/>}
                 {errorMainCoins && <ErrorWindow errorMessage={errorMainCoins}/>}
             </header>
-
-
         )
     }
 )

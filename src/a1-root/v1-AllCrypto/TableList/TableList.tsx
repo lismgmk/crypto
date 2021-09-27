@@ -10,14 +10,9 @@ import {Modal} from "../../common/Modal/Modal";
 import {actionsWaletCrypto} from "../../../Redusers/WalletCryptoReduser";
 import {actionsCoinCrypto} from "../../../Redusers/CoinCryptoReduser";
 
-type TableListPropsType = {
-    // setCoinId: (val: string) => void
-    // setFlag: (val: boolean) => void
-}
 
 
-export const TableList: React.FC<TableListPropsType> = (props: TableListPropsType) => {
-    // const {setCoinId, setFlag} = props
+export const TableList: React.FC = () => {
 
     const dispatch = useDispatch();
 
@@ -25,9 +20,7 @@ export const TableList: React.FC<TableListPropsType> = (props: TableListPropsTyp
     const [addModal, setAddModal] = useState(false);
 
     const handleClickCoin = (id: string) => {
-        // setCoinId(id)
         dispatch(actionsCoinCrypto.getOneMainCoin(id))
-        // setFlag(true)
     }
 
     const handleAddCoin = (name: string, sumbol: string, priceUsd: string) => {
@@ -51,7 +44,10 @@ export const TableList: React.FC<TableListPropsType> = (props: TableListPropsTyp
                 {allCoins.map((c) => {
                     return <tr key={nanoid()}>
                         <th className={s.col1}>{(+c.rank).toFixed(0)}</th>
-                        <th className={s.col2} onClick={() => handleClickCoin(c.id)}>{c.name}</th>
+                        <th className={s.col2} style={{
+                            cursor: 'pointer'
+                        }}
+                            onClick={() => handleClickCoin(c.id)}>{c.name}</th>
                         <th className={s.col3}>{(+c.priceUsd).toFixed(3)}</th>
                         <th className={s.col4}>{(+c.changePercent24Hr).toFixed(3)}</th>
                         <th className={s.col5}>{c.symbol}</th>
@@ -72,8 +68,8 @@ export const TableList: React.FC<TableListPropsType> = (props: TableListPropsTyp
                 </tbody>
             </table>
             <Modal modalActive={addModal} setModalActive={setAddModal}>
-               The coin has been successfully added to the wallet.
-               To edit, go to the <Link to="/Crypto_wallet">Wallet</Link> or add more
+                The coin has been successfully added to the wallet.
+                To edit, go to the <Link to="/Crypto_wallet">Wallet</Link> or add more
 
             </Modal>
 

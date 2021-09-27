@@ -127,32 +127,23 @@ export const getCurrentCost = () => async (dispatch: Dispatch<any>, getState: ()
         } else {
             let startCoinCoast = getState().wallet.startCoastUSD
             let coinsNameinWallet: Array<string> = []
-
-
             coins.forEach((i) => {
                 coinsNameinWallet.push(i.name)
             })
-
             dispatch(actionsMainCrypto.setLoader(true))
-
-
             let res = await cryptoAPI.fetchMainCoins(coinsNameinWallet)
             dispatch(actionsWaletCrypto.setError(null))
             let newCoins = res.data.data
             let sumWallet = 0
             let i = 0
-
             do {
                 sumWallet += +newCoins[i].priceUsd * +coins[i].sum;
                 i++
             } while (i < newCoins.length)
-
             let delta = startCoinCoast - sumWallet
             let deltaPersent = ((startCoinCoast - sumWallet) / startCoinCoast) * 100
-
             dispatch(actionsWaletCrypto.getDifference(delta))
             dispatch(actionsWaletCrypto.getDifferencePercent(deltaPersent))
-
         }
     } catch (e: any) {
         dispatch(actionsWaletCrypto.setError(e.message))

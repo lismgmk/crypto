@@ -1,16 +1,16 @@
 import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, KeyboardEvent} from "react";
 import s from "./InputField.module.scss";
+import style from "../../v1-AllCrypto/TableList/TableList.module.scss";
 
 type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
 
-type InputFieldPropsType = DefaultInputPropsType & { // и + ещё пропсы которых нет в стандартном инпуте
+type InputFieldPropsType = DefaultInputPropsType & {
     onChangeText?: (value: string) => void
     onEnter?: () => void
     error?: string | null
     spanClassName?: string
     label?: string
 }
-
 
 export const InputField: React.FC<InputFieldPropsType> =  (
     {
@@ -30,7 +30,6 @@ export const InputField: React.FC<InputFieldPropsType> =  (
     }
     const onKeyPressCallback = (e: KeyboardEvent<HTMLInputElement>) => {
         onKeyPress && onKeyPress(e);
-
         onEnter
         && e.key === 'Enter'
         && onEnter()
@@ -41,7 +40,7 @@ export const InputField: React.FC<InputFieldPropsType> =  (
     const finalInputClassName = `${s.input} ${error && s.input__error}`
 
     return (
-        <th className={`${s.col2} ${s.inputField}`}>
+        <th className={`${style.col2} ${s.inputField}`}>
             <label aria-required={true}>{label}</label>
             <input
                 onChange={onChangeCallback}
@@ -49,7 +48,10 @@ export const InputField: React.FC<InputFieldPropsType> =  (
                 className={finalInputClassName}
                 {...restProps}
             />
-            <div className={s.inputField__error}>{error && <span className={finalSpanClassName}>{error}</span>}</div>
+            <div className={s.inputField__error}>
+                {error && <span className={finalSpanClassName}>{error}
+                </span>}
+            </div>
         </th>
     )
 }

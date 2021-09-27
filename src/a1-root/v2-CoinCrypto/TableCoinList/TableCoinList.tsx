@@ -4,16 +4,13 @@ import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../../App/store";
 import {CoinType} from "../../../API/cryptoAPI";
-import {nanoid} from "nanoid";
 import {Button} from "../../common/Button/Button";
 import {Modal} from "../../common/Modal/Modal";
 import {actionsWaletCrypto} from "../../../Redusers/WalletCryptoReduser";
-import {Chart} from "../../v4-Chart/Chart";
-
-type TableListPropsType = {}
 
 
-export const TableCoinList: React.FC<TableListPropsType> = (props: TableListPropsType) => {
+
+export const TableCoinList: React.FC = () => {
 
     const dispatch = useDispatch();
 
@@ -26,8 +23,8 @@ export const TableCoinList: React.FC<TableListPropsType> = (props: TableListProp
     }
 
     return (
-        <div className={s.table} >
-            <table className={s.table__blockCoin} >
+        <div className={s.table}>
+            <table className={s.table__blockCoin}>
                 <thead>
                 <tr>
                     <th className={s.col1}>Rank</th>
@@ -60,13 +57,11 @@ export const TableCoinList: React.FC<TableListPropsType> = (props: TableListProp
                 </tr>
                 }
                 </tbody>
-
             </table>
 
             <Modal modalActive={addModal} setModalActive={setAddModal}>
-               The coin has been successfully added to the wallet.
-               To edit, go to the <Link to="/Crypto_wallet">Wallet</Link> or add more
-
+                The coin has been successfully added to the wallet.
+                To edit, go to the <Link to="/Crypto_wallet">Wallet</Link> or add more
             </Modal>
 
         </div>

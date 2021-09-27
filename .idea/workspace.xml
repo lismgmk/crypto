@@ -1,21 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f11c73bf-c5de-43ff-b37b-631266e2703f" name="Default Changelist" comment="page CoinCrypto">
-      <change afterPath="$PROJECT_DIR$/src/a1-root/v3-Wallet/TableWalletList/TableWalletList.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/a1-root/v3-Wallet/TableWalletList/TableWalletList.tsx" afterDir="false" />
+    <list default="true" id="f11c73bf-c5de-43ff-b37b-631266e2703f" name="Default Changelist" comment="fix wallet">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/API/cryptoAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/cryptoAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/localstorage-utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/localstorage-utils.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Redusers/CoinCryptoReduser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redusers/CoinCryptoReduser.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Redusers/MainCryptoReduser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redusers/MainCryptoReduser.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Redusers/WalletCryptoReduser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redusers/WalletCryptoReduser.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Redusers/paginationReduser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redusers/paginationReduser.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a1-root/Header/Header.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/Header/Header.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a1-root/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/Header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a1-root/common/Error/ErrorWindow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/common/Error/ErrorWindow.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a1-root/common/Headings/H1.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/common/Headings/H1.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a1-root/common/Headings/H2.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/common/Headings/H2.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a1-root/common/InputField/InputField.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/common/InputField/InputField.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/a1-root/common/InputField/InputField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/common/InputField/InputField.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a1-root/common/Pagination/PaginationWrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/common/Pagination/PaginationWrapper.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a1-root/v1-AllCrypto/AllCrypto.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v1-AllCrypto/AllCrypto.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/a1-root/v1-AllCrypto/AllCrypto.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v1-AllCrypto/AllCrypto.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a1-root/v1-AllCrypto/TableList/TableList.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v1-AllCrypto/TableList/TableList.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/a1-root/v1-AllCrypto/TableList/TableList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v1-AllCrypto/TableList/TableList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/a1-root/v2-CoinCrypto/CoinCrypto.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v2-CoinCrypto/CoinCrypto.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a1-root/v2-CoinCrypto/TableCoinList/TableCoinList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v2-CoinCrypto/TableCoinList/TableCoinList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/a1-root/v3-Wallet/InputForWalet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v3-Wallet/InputForWalet.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a1-root/v3-Wallet/TableWalletList/TableWalletList.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v3-Wallet/TableWalletList/TableWalletList.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a1-root/v3-Wallet/TableWalletList/TableWalletList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v3-Wallet/TableWalletList/TableWalletList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/a1-root/v3-Wallet/Wallet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v3-Wallet/Wallet.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a1-root/v4-Chart/Chart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/a1-root/v4-Chart/Chart.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icon/wallet-svgrepo-com.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,8 +105,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.deploy" />
         <item itemvalue="npm.start" />
+        <item itemvalue="npm.deploy" />
       </list>
     </recent_temporary>
   </component>
@@ -120,7 +135,8 @@
       <workItem from="1632649217184" duration="32711000" />
       <workItem from="1632700357141" duration="68000" />
       <workItem from="1632700536510" duration="931000" />
-      <workItem from="1632742715858" duration="6717000" />
+      <workItem from="1632742715858" duration="6991000" />
+      <workItem from="1632771096891" duration="9602000" />
     </task>
     <task id="LOCAL-00001" summary="add Redusers, API">
       <created>1632173180782</created>
@@ -255,7 +271,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632699303547</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="fix wallet">
+      <created>1632760617343</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1632760617343</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -294,6 +317,7 @@
     <MESSAGE value="add loader" />
     <MESSAGE value="page AllCrypto" />
     <MESSAGE value="page CoinCrypto" />
-    <option name="LAST_COMMIT_MESSAGE" value="page CoinCrypto" />
+    <MESSAGE value="fix wallet" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix wallet" />
   </component>
 </project>

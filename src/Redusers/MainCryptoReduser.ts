@@ -25,7 +25,6 @@ export const MainCryptoReduser =
                 return {...state, errorMainCoins: action.error};
             case "MAIN/LOADER":
                 return {...state, loader: action.loader};
-
             default:
                 return state;
         }
@@ -40,7 +39,6 @@ export const actionsMainCrypto = {
     setErrorMainCoins: (error: string | null) => ({type: "MAIN/ERROR-MAIN-COINS", error} as const),
     setLoader: (loader: boolean|null) => ({type: "MAIN/LOADER", loader} as const)
 }
-
 
 // thunks
 export const getMainCoin = (

@@ -1,38 +1,23 @@
-import React, {useCallback, useState} from "react";
-import s from "./TableWalletList.module.scss";
-import {Link} from "react-router-dom";
+import React, {useCallback} from "react";
+import s from "../../v1-AllCrypto/TableList/TableList.module.scss";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../../App/store";
-import {CoinType} from "../../../API/cryptoAPI";
 import {nanoid} from "nanoid";
 import {Button} from "../../common/Button/Button";
-import {Modal} from "../../common/Modal/Modal";
 import {
     actionsWaletCrypto,
     CoinInWalletType,
-    getCurrentCost,
-    getStartandCurrentCost
 } from "../../../Redusers/WalletCryptoReduser";
-import {actionsCoinCrypto} from "../../../Redusers/CoinCryptoReduser";
 import {Preloader} from "../../common/Preloader/Preloader";
 import InputForWalet from "../InputForWalet";
 
-type TableListPropsType = {}
 
-
-export const TableWalletList: React.FC<TableListPropsType> = (props: TableListPropsType) => {
+export const TableWalletList: React.FC = () => {
 
     const dispatch = useDispatch();
 
     let coins = useSelector<AppRootStateType, Array<CoinInWalletType>>(state => state.wallet.coinInWallet)
     let loader = useSelector<AppRootStateType, boolean | null>(state => state.allCrypto.loader)
-
-
-    const handleSubmit = useCallback(() => {
-            dispatch(getStartandCurrentCost())
-            dispatch(getCurrentCost())
-        }
-        , [])
 
 
     const handleDelete = useCallback(
@@ -44,7 +29,6 @@ export const TableWalletList: React.FC<TableListPropsType> = (props: TableListPr
     if (loader) {
         return <Preloader/>
     }
-
 
     return (
         <div className={s.table}>
@@ -63,13 +47,12 @@ export const TableWalletList: React.FC<TableListPropsType> = (props: TableListPr
                     return <tr key={nanoid()}>
                         <th className={s.col1}>{i.name}</th>
 
-                            <InputForWalet
-                                name={i.name}
-                                id={i.id}
-                                sum={i.sum}
-                                symbol={i.symbol}
-                            />
-                        {/*<th className={s.col3}>{i.symbol}</th>*/}
+                        <InputForWalet
+                            name={i.name}
+                            id={i.id}
+                            sum={i.sum}
+                            symbol={i.symbol}
+                        />
                         <th className={`${s.col5} ${s.btn}`}>
                             <Button
                                 width={80}
@@ -78,14 +61,11 @@ export const TableWalletList: React.FC<TableListPropsType> = (props: TableListPr
                                 onClick={() => handleDelete(i.id)}
                             >Delete</Button>
                         </th>
-
                     </tr>
                 })
                 }
                 </tbody>
             </table>
-
-
         </div>
     )
 }

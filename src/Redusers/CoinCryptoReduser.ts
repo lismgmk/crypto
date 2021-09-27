@@ -35,9 +35,7 @@ export const actionsCoinCrypto = {
     getHistoryCoin: (history: Array<HistoryCoinType>) => ({type: "COIN/HISTORY-COIN", history} as const),
     setError: (error: string | null) => ({type: "COIN/ERROR", error} as const),
     setErrorCoin: (error: string | null) => ({type: "COIN/ERROR-COIN", error} as const),
-
 };
-
 
 // thunks
 
@@ -55,7 +53,6 @@ export const getChangedForCoin = (id: string, int?: string) => async (dispatch: 
         dispatch(actionsMainCrypto.setLoader(false))
     }
 };
-
 
 // types
 export type InitialStateType = {

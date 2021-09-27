@@ -15,10 +15,6 @@ const AllCrypto = React.memo(() => {
     const dispatch = useDispatch();
 
     let loader = useSelector<AppRootStateType, boolean | null>(state => state.allCrypto.loader)
-    const [coinId, setCoinId] = useState<string>('')
-    // const [flag, setFlag] = useState<boolean>(false)
-
-
     const pageTotalCount = useSelector<AppRootStateType, number>(state => state.pagination.pageTotalCount)
     const currentPage = useSelector<AppRootStateType, number>(state => state.pagination.page)
     const pageCount = useSelector<AppRootStateType, number>(state => state.pagination.pageCount)

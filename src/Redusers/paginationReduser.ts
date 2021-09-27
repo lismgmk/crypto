@@ -1,7 +1,7 @@
 import {CommonActionTypeForApp, InferActionType} from "../App/store";
 
 const initialState = {
-    pageCount: 5,
+    pageCount: 6,
     page: 1,
     pageTotalCount: 2000
 };
@@ -16,13 +16,11 @@ export const paginationReducer =
             default:
                 return state;
         }
-    };
+    }
 
 
 // actions
 export const actionsForPagination = {
-
-
     setPage: (pack: number) => ({
         type: "PAGINATION/SET-PAGE",
         pack
@@ -31,9 +29,7 @@ export const actionsForPagination = {
         type: "PAGINATION/SET-PAGE-COUNT",
         pack
     } as const)
-
 };
-
 
 
 // types

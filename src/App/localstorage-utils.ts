@@ -1,4 +1,3 @@
-import {AppRootStateType} from "./store";
 import {InitialStateWalletType} from "../Redusers/WalletCryptoReduser";
 
 
