@@ -40,8 +40,8 @@ export const PaginationWrapper: React.FC<PackPropsType> = ({
                     setPackPageCount(+e.currentTarget.value)
                 }>
                     <option  value={3}>3</option>
-                    <option   value={6}>5</option>
-                    <option   value={11}>10</option>
+                    <option   value={5}>5</option>
+                    <option   value={10}>10</option>
                 </select>
                 <span className={style.paginationSpan}>Coins per Page</span>
             </div>

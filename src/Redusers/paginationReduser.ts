@@ -1,7 +1,7 @@
 import {CommonActionTypeForApp, InferActionType} from "../App/store";
 
 const initialState = {
-    pageCount: 6,
+    pageCount: 3,
     page: 1,
     pageTotalCount: 2000
 };
